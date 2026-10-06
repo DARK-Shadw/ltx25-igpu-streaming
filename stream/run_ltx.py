@@ -222,7 +222,8 @@ t = time.perf_counter()
 step_t = []
 
 
-_stage = {"tag": "C", "n": STEPS}
+PREVIEW_DIR = os.environ.get("PREVIEW_DIR")           # if set, write a live preview picture after every denoising step
+_stage = {"tag": "C", "n": STEPS, "F": (FRAMES - 1) // 8 + 1, "h": H // 32, "w": W // 32}
 
 
 def on_step(pipe_, i, tt, kw):
@@ -230,6 +231,20 @@ def on_step(pipe_, i, tt, kw):
     now = time.perf_counter()
     step_t.append(now)
     log(f"{_stage['tag']}: step {i + 1}/{_stage['n']} done ({now - (step_t[-2] if len(step_t) > 1 else t):.1f}s)")
+    if PREVIEW_DIR and kw.get("noise_pred_video") is not None:
+        try:   # x0 estimate = latents_next - sigma_next * velocity (flow matching, Euler step); never let a preview break generation
+            import preview
+            sig = float(pipe_.scheduler.sigmas[i + 1]) if i + 1 < len(pipe_.scheduler.sigmas) else 0.0
+            lat, vel = kw["latents"].float(), kw["noise_pred_video"].float()
+            if vel.ndim == 5:   # the image-to-video pipeline passes the velocity unpacked and without the clean first frame
+                lat = LTX2Pipeline._unpack_latents(lat, _stage["F"], _stage["h"], _stage["w"], pipe_.transformer_spatial_patch_size, pipe_.transformer_temporal_patch_size)
+                vel = torch.cat([torch.zeros_like(vel[:, :, :1]), vel], dim=2)
+            x0 = lat - sig * vel
+            preview.save_preview(x0, _stage["F"], _stage["h"], _stage["w"], LTX2Pipeline, vae,
+                                 pipe_.transformer_spatial_patch_size, pipe_.transformer_temporal_patch_size,
+                                 os.path.join(PREVIEW_DIR, f"{_stage['tag']}_step{i + 1}.png"))
+        except Exception as e:
+            log(f"  [preview skipped: {type(e).__name__}: {e}]")
     return kw
 
 
@@ -241,6 +256,9 @@ common = dict(
     spatio_temporal_guidance_blocks=None, output_type="latent", return_dict=False,
     callback_on_step_end=on_step, generator=gen, frame_rate=FPS,
 )
+if PREVIEW_DIR:
+    common["callback_on_step_end_tensor_inputs"] = ["latents", "noise_pred_video"]
+    pipe._callback_tensor_inputs = ["latents", "prompt_embeds", "negative_prompt_embeds", "noise_pred_video"]
 with torch.no_grad():
     if RESUME_S1:
         _d = torch.load(LAT + ".stage1")
@@ -265,7 +283,7 @@ with torch.no_grad():
         ds.close()
         ds = make_ds(0)
         cleanup()
-        _stage.update(tag="C2", n=len(S2_SIGMAS))
+        _stage.update(tag="C2", n=len(S2_SIGMAS), h=H // 16, w=W // 16)
         t2 = time.perf_counter()
         step_t.clear(); t = t2
         _p2 = pipe
@@ -275,6 +293,7 @@ with torch.no_grad():
             _p2 = LTX2Pipeline(scheduler=sched, vae=vae, audio_vae=audio_vae, text_encoder=te_full.model, tokenizer=tok,
                                connectors=conn, transformer=dit, vocoder=vocoder)
             object.__setattr__(_p2, "connectors", lambda *a, **k: (c_video, c_audio, c_mask))
+            if PREVIEW_DIR: _p2._callback_tensor_inputs = ["latents", "prompt_embeds", "negative_prompt_embeds", "noise_pred_video"]
         video_lat, audio_lat = _p2(num_frames=FRAMES, num_inference_steps=len(S2_SIGMAS), sigmas=S2_SIGMAS, latents=up_lat,
                                    audio_latents=audio_lat, noise_scale=S2_SIGMAS[0], **common)
 log(f"C: denoising done in {time.perf_counter() - t:.1f}s (transformer streamed {ds.bytes / 2**30:.1f} GiB)")

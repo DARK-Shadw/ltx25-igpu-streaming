@@ -24,3 +24,7 @@ setup_log.txt
 setup_report.json
 friend_probe_report*
 _hf_probe/
+
+# studio UI scratch
+previews/
+studio_inputs/
