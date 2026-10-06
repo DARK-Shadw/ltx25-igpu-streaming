@@ -1,0 +1,26 @@
+# model weights, environment and generated media (large / regenerable)
+models/
+.venv/
+latents/
+frames/
+audio/
+logs/
+videos/*
+!videos/README.md
+__pycache__/
+*.pyc
+*.pt
+*.safetensors
+*.mp4
+*.wav
+*.zip
+*.exe
+*.bin
+
+# machine-local state and other people's data
+ltx_config.json
+setup_state.json
+setup_log.txt
+setup_report.json
+friend_probe_report*
+_hf_probe/
