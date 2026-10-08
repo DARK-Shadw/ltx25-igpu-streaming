@@ -1,0 +1,36 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "08",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot08_a0_custom_1600x896_24fps_4.1s_seed7508.mp4",
+  "frames": 98,
+  "verdict": "FAIL",
+  "fails": [
+    "hold failed: layout changed fast (jump 23.8; limit 12) - 'everyone stays standing in place'"
+  ],
+  "warns": [
+    "audio is very quiet (rms 0.009); fix in the sound pass"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 20.5,
+    "motion": {
+      "median": 9.9,
+      "p90": 21.2,
+      "max": 23.1
+    },
+    "layout_jump": 23.8,
+    "zoom_max": 1.04,
+    "zoom_final": 1.0,
+    "sharpness_min_over_median": 0.83,
+    "audio": {
+      "rms": 0.0085,
+      "peak": 0.09,
+      "centroid_hz": 1075,
+      "active_fraction": 1.0,
+      "finite": true
+    },
+    "picture_fails": [
+      "hold failed: layout changed fast (jump 23.8; limit 12) - 'everyone stays standing in place'"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "14",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot14_a0_custom_1600x896_24fps_5.4s_seed7514.mp4",
+  "frames": 130,
+  "verdict": "FAIL",
+  "fails": [
+    "hold failed: subject/camera zooms toward the lens (1.52x; limit 1.5) - face will morph"
+  ],
+  "warns": [
+    "audio clips",
+    "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 21.3,
+    "motion": {
+      "median": 2.6,
+      "p90": 11.5,
+      "max": 22.2
+    },
+    "layout_jump": 21.0,
+    "zoom_max": 1.52,
+    "zoom_final": 1.52,
+    "sharpness_min_over_median": 0.8,
+    "audio": {
+      "rms": 0.1899,
+      "peak": 1.228,
+      "centroid_hz": 1743,
+      "active_fraction": 0.85,
+      "finite": true
+    },
+    "speech": {
+      "expected": "Blasphemous How dare you a puny disciple go against the Archbishop",
+      "heard": "Blasphemous!  How  dare  you,  a  puny  disciple,  go  against  the  archbishop!",
+      "similarity": 1.0,
+      "onset_s": 0.0,
+      "end_s": 4.98,
+      "clip_s": 5.37
+    },
+    "picture_fails": [
+      "hold failed: subject/camera zooms toward the lens (1.52x; limit 1.5) - face will morph"
+    ]
+  }
+}

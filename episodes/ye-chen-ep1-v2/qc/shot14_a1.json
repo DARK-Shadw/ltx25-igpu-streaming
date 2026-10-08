@@ -1,0 +1,40 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "14",
+  "attempt": 1,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot14_a1_custom_1600x896_24fps_5.4s_seed8514.mp4",
+  "frames": 130,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "audio clips"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 21.6,
+    "motion": {
+      "median": 1.4,
+      "p90": 5.9,
+      "max": 9.3
+    },
+    "layout_jump": 6.8,
+    "zoom_max": 1.24,
+    "zoom_final": 1.24,
+    "sharpness_min_over_median": 0.99,
+    "audio": {
+      "rms": 0.1789,
+      "peak": 1.18,
+      "centroid_hz": 1513,
+      "active_fraction": 1.0,
+      "finite": true
+    },
+    "speech": {
+      "expected": "Blasphemous How dare you a puny disciple go against the Archbishop",
+      "heard": "Blasphemous!  How  dare  you,  a  puny  disciple,  go  against  the  arch  of  sho -",
+      "similarity": 0.83,
+      "onset_s": 0.7,
+      "end_s": 5.22,
+      "clip_s": 5.37
+    },
+    "picture_fails": []
+  }
+}

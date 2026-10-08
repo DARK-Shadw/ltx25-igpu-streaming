@@ -1,0 +1,32 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "20",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot20_a0_custom_1600x896_24fps_5.4s_seed7520.mp4",
+  "frames": 130,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "audio is only a low rumble (centroid 74 Hz)"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 19.4,
+    "motion": {
+      "median": 5.4,
+      "p90": 6.6,
+      "max": 6.8
+    },
+    "layout_jump": 7.9,
+    "zoom_max": 1.2,
+    "zoom_final": 1.2,
+    "sharpness_min_over_median": 0.97,
+    "audio": {
+      "rms": 0.0353,
+      "peak": 0.11,
+      "centroid_hz": 74,
+      "active_fraction": 1.0,
+      "finite": true
+    },
+    "picture_fails": []
+  }
+}

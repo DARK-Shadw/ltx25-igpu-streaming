@@ -1,0 +1,32 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "17",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot17_a0_custom_1600x896_24fps_4.1s_seed7517.mp4",
+  "frames": 98,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "audio is very quiet (rms 0.007); fix in the sound pass"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 21.6,
+    "motion": {
+      "median": 4.9,
+      "p90": 8.9,
+      "max": 11.5
+    },
+    "layout_jump": 11.6,
+    "zoom_max": 1.0,
+    "zoom_final": 1.0,
+    "sharpness_min_over_median": 0.96,
+    "audio": {
+      "rms": 0.0067,
+      "peak": 0.044,
+      "centroid_hz": 572,
+      "active_fraction": 1.0,
+      "finite": true
+    },
+    "picture_fails": []
+  }
+}

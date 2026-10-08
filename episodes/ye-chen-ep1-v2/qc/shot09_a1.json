@@ -1,0 +1,40 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "09",
+  "attempt": 1,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot09_a1_custom_1600x896_24fps_5.4s_seed8509.mp4",
+  "frames": 130,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 21.5,
+    "motion": {
+      "median": 1.2,
+      "p90": 3.2,
+      "max": 5.3
+    },
+    "layout_jump": 4.2,
+    "zoom_max": 1.0,
+    "zoom_final": 1.0,
+    "sharpness_min_over_median": 0.99,
+    "audio": {
+      "rms": 0.1523,
+      "peak": 0.949,
+      "centroid_hz": 988,
+      "active_fraction": 0.9,
+      "finite": true
+    },
+    "speech": {
+      "expected": "So this is the Supreme Stygian Holy Land Oppressive Tyrannical",
+      "heard": "So  this  is  the  Supreme  Stygian  Holy  Land?  Oppressive.  Tyranical.",
+      "similarity": 0.9,
+      "onset_s": 0.0,
+      "end_s": 4.98,
+      "clip_s": 5.37
+    },
+    "picture_fails": []
+  }
+}

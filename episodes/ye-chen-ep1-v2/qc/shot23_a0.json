@@ -1,0 +1,40 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "23",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot23_a0_custom_1600x896_24fps_4.1s_seed7523.mp4",
+  "frames": 98,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "audio clips"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 19.6,
+    "motion": {
+      "median": 4.4,
+      "p90": 18.8,
+      "max": 25.7
+    },
+    "layout_jump": 26.3,
+    "zoom_max": 1.0,
+    "zoom_final": 1.0,
+    "sharpness_min_over_median": 0.87,
+    "audio": {
+      "rms": 0.1072,
+      "peak": 1.062,
+      "centroid_hz": 896,
+      "active_fraction": 0.47,
+      "finite": true
+    },
+    "speech": {
+      "expected": "T To the devil How slanderous",
+      "heard": "To  the  devil?  How  slanderous!",
+      "similarity": 0.91,
+      "onset_s": 0.78,
+      "end_s": 3.78,
+      "clip_s": 4.05
+    },
+    "picture_fails": []
+  }
+}

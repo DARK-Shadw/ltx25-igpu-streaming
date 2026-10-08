@@ -43,6 +43,30 @@ def audio_mono16k(video):
     return np.concatenate(out) if out else np.zeros(1, "float32")
 
 
+def zoom_curve(video, step=6, smax=2.0):
+    """zoom factor of the central region over time (1.0 = same size as frame 0). Calibrated on ye-chen-ep1: faces that leaned/zoomed toward the lens
+    (shots 6, 5B a2) reach 1.5-2.0; shots the director liked stay at 1.0-1.36."""
+    fr = []
+    for k, f in enumerate(av.open(video).decode(video=0)):
+        if k % step == 0: fr.append(np.asarray(f.to_image().convert("L").resize((200, 112), Image.BILINEAR), dtype="float32"))
+    H, W = fr[0].shape; ch, cw = int(H * 0.6), int(W * 0.6); base = Image.fromarray(fr[0].astype("uint8")); scales = np.arange(1.0, smax + 1e-6, 0.04); cache = {}
+    for sc in scales:
+        w, h = int(W * sc), int(H * sc); big = np.asarray(base.resize((w, h), Image.BILINEAR), dtype="float32"); y0, x0 = (h - ch) // 2, (w - cw) // 2
+        c = big[y0:y0 + ch, x0:x0 + cw]; cache[sc] = (c - c.mean()) / (c.std() + 1e-6)
+    out = []
+    for f in fr:
+        t = f[H // 2 - ch // 2:H // 2 - ch // 2 + ch, W // 2 - cw // 2:W // 2 - cw // 2 + cw]; t = (t - t.mean()) / (t.std() + 1e-6)
+        out.append(max(((float((t * cache[sc]).mean()), float(sc)) for sc in scales))[1])
+    return out
+
+
+def face_strip(video, out_png, n=6):
+    fr = [f.to_ndarray(format="rgb24") for f in av.open(video).decode(video=0)]; H, W = fr[0].shape[:2]
+    box = (W // 4, H // 12, 3 * W // 4, 11 * H // 12); w = 420; h = int(w * (box[3] - box[1]) / (box[2] - box[0])); S = Image.new("RGB", (3 * w, 2 * h))
+    for k, i in enumerate(np.linspace(0, len(fr) - 1, n).astype(int)): S.paste(Image.fromarray(fr[i][box[1]:box[3], box[0]:box[2]]).resize((w, h), Image.LANCZOS), ((k % 3) * w, (k // 3) * h))
+    S.save(out_png)
+
+
 def norm_words(t):
     return re.sub(r"[^a-z0-9 ]", "", t.lower().replace("-", " ")).split()
 
@@ -77,6 +101,12 @@ def run_qc(episode, shot, video, attempt=0, do_asr=True):
         hmax = q.get("hold_jump_max", 12)        # crowd shots: 12 (people leaving = 23-25). Single-subject inserts with a moving hand/object may allow more.
         if jump > hmax + 4: fails.append(f"hold failed: layout changed fast (jump {jump:.1f}; limit {hmax}) - '{q['must_hold']}'")
         elif jump > hmax: warns.append(f"hold borderline: layout jump {jump:.1f} (limit {hmax}) - '{q['must_hold']}'")
+    # --- face / subject zoom (lean-in or push-in)
+    zc = zoom_curve(video); res["zoom_max"] = round(max(zc), 2); res["zoom_final"] = round(zc[-1], 2)
+    zf, zw = q.get("zoom_fail", 1.5), q.get("zoom_warn", 1.25)
+    if q.get("locked", True) is not False:
+        if max(zc) >= zf: fails.append(f"hold failed: subject/camera zooms toward the lens ({max(zc):.2f}x; limit {zf}) - face will morph")
+        elif max(zc) >= zw: warns.append(f"slight zoom toward the lens ({max(zc):.2f}x)")
     # --- sharpness collapse
     sh = np.array([np.abs(np.diff(g, axis=1)).mean() + np.abs(np.diff(g, axis=0)).mean() for g in uniq])
     res["sharpness_min_over_median"] = round(float(sh.min() / np.median(sh)), 2)
@@ -105,11 +135,15 @@ def run_qc(episode, shot, video, attempt=0, do_asr=True):
             res["speech"] = dict(expected=exp, heard=heard, similarity=round(sim, 2), onset_s=None if onset is None else round(onset, 2), end_s=None if end is None else round(end, 2), clip_s=round(dur, 2))
             if sim < 0.6: fails.append(f"speech does not match the line (similarity {sim:.2f}): heard '{heard}'")
             elif sim < 0.8: warns.append(f"speech partly differs from the line (similarity {sim:.2f}): heard '{heard}'")
-            if words and (onset > 2.5): warns.append(f"speech starts late ({onset:.1f} s)")
+            if words and onset < 0.6: warns.append(f"speech starts too early ({onset:.2f} s): no beat of silent presence first (want 0.7-1.8 s)")
+            if words and onset > 1.9: warns.append(f"speech starts late ({onset:.1f} s)")
             if words and end >= dur - 0.1: warns.append("speech runs to the very end of the clip (may be cut off)")
+    res["picture_fails"] = [f for f in fails if "audio" not in f.lower() and "speech" not in f.lower()]
     verdict = "FAIL" if fails else ("WARN" if warns else "PASS")
     out = dict(episode=episode, shot=shot, attempt=attempt, video=os.path.relpath(video, ROOT), frames=n_frames, verdict=verdict, fails=fails, warns=warns, metrics=res)
     os.makedirs(os.path.join(ep, "qc"), exist_ok=True)
+    try: face_strip(video, os.path.join(ep, "qc", f"shot{shot}_a{attempt}_faces.png"))
+    except Exception as e: warns.append(f"face strip failed: {e}")
     json.dump(out, open(os.path.join(ep, "qc", f"shot{shot}_a{attempt}.json"), "w", encoding="utf-8"), indent=2)
     return out
 

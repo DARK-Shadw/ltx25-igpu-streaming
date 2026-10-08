@@ -1,0 +1,40 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "12",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot12_a0_custom_1600x896_24fps_6.8s_seed7512.mp4",
+  "frames": 162,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "motion median 0.7 outside the band 2-14"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 21.9,
+    "motion": {
+      "median": 0.7,
+      "p90": 2.7,
+      "max": 4.9
+    },
+    "layout_jump": 3.7,
+    "zoom_max": 1.0,
+    "zoom_final": 1.0,
+    "sharpness_min_over_median": 0.97,
+    "audio": {
+      "rms": 0.1421,
+      "peak": 0.971,
+      "centroid_hz": 855,
+      "active_fraction": 0.76,
+      "finite": true
+    },
+    "speech": {
+      "expected": "You never even asked the Saintess if she was willing I will do her justice today",
+      "heard": "You  never  even  asked  the  Saintess  if  she  was  willing!  I  will  do  her  justice  today!",
+      "similarity": 1.0,
+      "onset_s": 1.84,
+      "end_s": 6.58,
+      "clip_s": 6.73
+    },
+    "picture_fails": []
+  }
+}

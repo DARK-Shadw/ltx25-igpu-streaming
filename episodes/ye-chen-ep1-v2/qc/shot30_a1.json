@@ -1,0 +1,42 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "30",
+  "attempt": 1,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot30_a1_custom_1600x896_24fps_6.8s_seed8530.mp4",
+  "frames": 162,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "slight zoom toward the lens (1.36x)",
+    "audio clips",
+    "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 20.6,
+    "motion": {
+      "median": 4.6,
+      "p90": 6.1,
+      "max": 7.4
+    },
+    "layout_jump": 6.1,
+    "zoom_max": 1.36,
+    "zoom_final": 1.36,
+    "sharpness_min_over_median": 0.97,
+    "audio": {
+      "rms": 0.2468,
+      "peak": 1.154,
+      "centroid_hz": 271,
+      "active_fraction": 0.87,
+      "finite": true
+    },
+    "speech": {
+      "expected": "And that young man was none other than Gu Changge",
+      "heard": "And  that  young  man  was  none  other  than  Guo  Changga.",
+      "similarity": 0.8,
+      "onset_s": 0.0,
+      "end_s": 5.28,
+      "clip_s": 6.73
+    },
+    "picture_fails": []
+  }
+}

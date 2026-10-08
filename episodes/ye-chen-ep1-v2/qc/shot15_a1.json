@@ -1,0 +1,38 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "15",
+  "attempt": 1,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot15_a1_custom_1600x896_24fps_5.4s_seed8515.mp4",
+  "frames": 130,
+  "verdict": "PASS",
+  "fails": [],
+  "warns": [],
+  "metrics": {
+    "start_frame_psnr_db": 22.4,
+    "motion": {
+      "median": 2.5,
+      "p90": 4.5,
+      "max": 5.7
+    },
+    "layout_jump": 6.5,
+    "zoom_max": 1.16,
+    "zoom_final": 1.16,
+    "sharpness_min_over_median": 0.99,
+    "audio": {
+      "rms": 0.1002,
+      "peak": 0.656,
+      "centroid_hz": 622,
+      "active_fraction": 0.61,
+      "finite": true
+    },
+    "speech": {
+      "expected": "Is Ye Chen mad Charging in here and saying such things",
+      "heard": "Is  Ye  Chen  mad?  Charging  in  here  and  saying  such  things?",
+      "similarity": 1.0,
+      "onset_s": 0.84,
+      "end_s": 4.84,
+      "clip_s": 5.37
+    },
+    "picture_fails": []
+  }
+}

@@ -37,6 +37,8 @@ def stitch(shots, out_path, fps=24, xfade_ms=300, crf=17):
         if sh.get("trim_end_s"):                                                                # cut the clip's end (e.g. cut on the last word)
             keep_n = min(kept[-1], int(round(sh["trim_end_s"] * fps))); kept[-1] = keep_n
         a = a[:, int(sr * drop / fps):]                                 # keep audio aligned with the dropped frames
+        if sh.get("audio_delay_s"):                                         # start the clip's sound later (adds the silent beat a line was missing)
+            a = np.concatenate([np.zeros((a.shape[0], int(sr * sh["audio_delay_s"])), np.float32), a], axis=1)
         tracks.append(a)
     for pkt in vs.encode(None): out.mux(pkt)
     # audio: every clip's audio is placed EXACTLY under its own video (padded/trimmed to its frame count), so sync never drifts.

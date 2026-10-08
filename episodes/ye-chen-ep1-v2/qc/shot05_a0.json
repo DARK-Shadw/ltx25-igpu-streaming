@@ -1,0 +1,35 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "05",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot05_a0_custom_1600x896_24fps_4.1s_seed7505.mp4",
+  "frames": 98,
+  "verdict": "FAIL",
+  "fails": [
+    "hold failed: subject/camera zooms toward the lens (1.64x; limit 1.5) - face will morph",
+    "audio is dead or invalid"
+  ],
+  "warns": [],
+  "metrics": {
+    "start_frame_psnr_db": 24.1,
+    "motion": {
+      "median": 5.1,
+      "p90": 6.5,
+      "max": 7.1
+    },
+    "layout_jump": 10.5,
+    "zoom_max": 1.64,
+    "zoom_final": 1.64,
+    "sharpness_min_over_median": 0.94,
+    "audio": {
+      "rms": 0.0014,
+      "peak": 0.02,
+      "centroid_hz": 1153,
+      "active_fraction": 0.03,
+      "finite": true
+    },
+    "picture_fails": [
+      "hold failed: subject/camera zooms toward the lens (1.64x; limit 1.5) - face will morph"
+    ]
+  }
+}

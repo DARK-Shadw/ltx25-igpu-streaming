@@ -30,7 +30,7 @@ W, H = (int(x) for x in (a.size or card.get("render_override", {}).get("stage1_s
 fps = plan["render"]["gen_fps"]
 refine = a.refine if a.refine is not None else card.get("render_override", {}).get("refinement_steps", plan["render"]["refinement_steps"])
 digits = "".join(c for c in a.shot if c.isdigit())
-seed = a.seed if a.seed is not None else 500 + int(digits) + (ord(a.shot[-1]) - 64 if a.shot[-1].isalpha() else 0) * 0 + 1000 * a.attempt
+seed = a.seed if a.seed is not None else 500 + int(digits) + plan["render"].get("seed_offset", 0) + 1000 * a.attempt
 
 # start image: crop-to-fill to the stage-1 size (no stretching)
 src = Image.open(os.path.join(ep_dir, "frames", card["frame"])).convert("RGB")

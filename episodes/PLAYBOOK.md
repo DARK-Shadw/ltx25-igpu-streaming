@@ -33,3 +33,4 @@
 - Reaction shots carry dread. They are not optional polish: cut dialogue, not reactions.
 - Select the attempt by PICTURE; fix audio in the sound pass. Look at face crops myself for every dialogue and key-character shot; automatic checks cannot judge faces.
 - A face the viewer must read needs >= 25% of the frame height at the 800x448 working size. A wide shot with a tiny character is a silhouette by design.
+- REUSED CLIPS CARRY THEIR OWN SPEECH: before trimming an old clip into a "silent" slot, transcribe it. Trimmed first seconds of old shot 6 and old shot 12 repeated "Blasphemous!" and "And that young man was..." (draft1). Mute the sound of such clips, or cut where the speech has not begun. Always transcribe the whole assembly and look for repeated phrases.

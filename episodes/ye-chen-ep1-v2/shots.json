@@ -1,0 +1,1106 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "chapter": "Ye Chen confronts the Archbishop at the canonization; the fear of Gu Changge builds to his reveal",
+  "render": {
+    "mode": "flash",
+    "stage1_size": "800x448",
+    "final_size": "1600x896",
+    "gen_fps": 12,
+    "frame_repeat": 2,
+    "refinement_steps": 1,
+    "seed_offset": 7000
+  },
+  "reuse_base": "episodes/ye-chen-ep1",
+  "shots": [
+    {
+      "id": "01",
+      "role": "Grand hall, the ceremony is solemn (establishing)",
+      "act": 1,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 1 (2-step)",
+      "dialogue": "",
+      "sound_plan": "horn drone, chant, bell",
+      "cam_plan": "slow crane down the aisle",
+      "status": "reuse"
+    },
+    {
+      "id": "02",
+      "role": "Seniors whisper in the gallery (everyone is watching)",
+      "act": 1,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 2 (a1)",
+      "dialogue": "",
+      "sound_plan": "murmur (added in the sound pass)",
+      "cam_plan": "almost static",
+      "status": "reuse"
+    },
+    {
+      "id": "03",
+      "role": "The Saintess, serene, about to be given away",
+      "act": 1,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 3",
+      "dialogue": "",
+      "sound_plan": "bell, strings",
+      "cam_plan": "slow push-in",
+      "status": "reuse"
+    },
+    {
+      "id": "04",
+      "role": "PLANT 1: a hand with a teacup, face hidden, tea perfectly still",
+      "act": 1,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 4",
+      "dialogue": "",
+      "sound_plan": "bell tail, chime",
+      "cam_plan": "almost static",
+      "status": "reuse"
+    },
+    {
+      "id": "05",
+      "role": "PLANT 2: a young disciple glances back over his shoulder, flinches, snaps his eyes down, sleeves tremble",
+      "act": 1,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "a swallowed breath, silk rustle",
+      "cam_plan": "locked",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. A young disciple in a grey robe sits tense in the gallery with his head turned over his shoulder, looking back at something behind him with wide, frightened eyes. After a moment he flinches, snaps his head forward and lowers his eyes to the floor, his sleeves trembling slightly and a bead of sweat sliding down his temple; the disciples behind him stay still. The camera is locked off and completely static, with no zoom and no push-in. The sound is a sharp swallowed breath, the clear rustle of silk robes and the tense murmur of a hall.",
+      "qc": {
+        "motion_median": [
+          2,
+          12
+        ]
+      },
+      "takes": 1,
+      "frame": "N1.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot05_a0_custom_1600x896_24fps_4.1s_seed7505.mp4",
+          "verdict": "FAIL",
+          "fails": [
+            "hold failed: subject/camera zooms toward the lens (1.64x; limit 1.5) - face will morph",
+            "audio is dead or invalid"
+          ],
+          "warns": [],
+          "zoom_max": 1.64,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 11.5
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "role": "PLANT 3: the far end of the hall - a dark throne in backlight, a shape on it, and an EMPTY CIRCLE of floor nobody steps into",
+      "act": 1,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "deep hum, silence around it",
+      "cam_plan": "very slow push toward the throne, 2-step (dense)",
+      "frames": 65,
+      "seconds": 5.42,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. A vast hall seen from deep inside the crowd, all of it perfectly still: disciples packed in rows on both sides of the aisle, and at the far end the dark silhouette of a young man seated on a plain black-jade throne in strong backlight, a thin curl of steam rising from the cup in his hand, with a wide circle of empty white-jade floor around him that nobody enters. Nothing moves except the steam, drifting golden dust and the slight sway of a banner. The camera pushes very slowly and steadily toward the throne. The sound is a deep resonant hum that swells slowly and one distant bell.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ],
+        "locked": false
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 1,
+      "frame": "N2.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot06_a0_custom_1600x896_24fps_5.4s_seed7506.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is only a low rumble (centroid 51 Hz)"
+          ],
+          "zoom_max": 1.12,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 18.0
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "role": "Ye Chen from behind, facing the dais (the room holds its breath)",
+      "act": 2,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 5A",
+      "dialogue": "",
+      "sound_plan": "drum; his voice starts 0.4 s before the cut (J-cut)",
+      "cam_plan": "slow push past his shoulder",
+      "status": "reuse"
+    },
+    {
+      "id": "08",
+      "role": "The whole crowd's heads whip toward the aisle (the gasp)",
+      "act": 2,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "a collective gasp, silk",
+      "cam_plan": "locked",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The disciples in the packed gallery stand perfectly still facing the dais; then, all at once, their heads turn together toward the aisle, hair and sleeves swinging with the motion, and a ripple of shock passes through the rows as they gasp. They stay standing in their places. The camera is locked off and completely static, with no zoom and no push-in. The sound is a collective sharp gasp and the loud rustle of hundreds of silk robes.",
+      "qc": {
+        "motion_median": [
+          2,
+          14
+        ],
+        "must_hold": "everyone stays standing in place"
+      },
+      "takes": 1,
+      "frame": "N3.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot08_a0_custom_1600x896_24fps_4.1s_seed7508.mp4",
+          "verdict": "FAIL",
+          "fails": [
+            "hold failed: layout changed fast (jump 23.8; limit 12) - 'everyone stays standing in place'"
+          ],
+          "warns": [
+            "audio is very quiet (rms 0.009); fix in the sound pass"
+          ],
+          "zoom_max": 1.04,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 10.9
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "role": "Ye Chen, line 1 (after a 1 s stare)",
+      "act": 2,
+      "tier": "A",
+      "type": "new_existing_image",
+      "source": null,
+      "dialogue": "So this is the Supreme Stygian Holy Land? Oppressive. Tyrannical.",
+      "sound_plan": "his echoing voice",
+      "cam_plan": "locked, same size",
+      "frames": 65,
+      "seconds": 5.42,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. For the first second the young man stays completely silent and still, glaring just past the camera at the dais with his jaw set. Then, in a loud, bitter, trembling young man's voice, the young man says: \"So this is the Supreme Stygian Holy Land? Oppressive. Tyrannical.\" The mouth moves with the words. The young man stays upright and the same size in the frame: his head and shoulders do not move toward the camera, and only his mouth, brows and hair move slightly. His hair stays tied in the same high ponytail. The camera is locked off and completely static, with no zoom and no push-in. The sound is his voice echoing in the vast hall over a deep, tense drum.",
+      "qc": {
+        "expect_speech": "So this is the Supreme Stygian Holy Land Oppressive Tyrannical",
+        "motion_median": [
+          2,
+          14
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "shot 5B.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot09_a0_custom_1600x896_24fps_5.4s_seed7509.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "slight zoom toward the lens (1.36x)",
+            "audio clips",
+            "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)",
+            "speech runs to the very end of the clip (may be cut off)"
+          ],
+          "zoom_max": 1.36,
+          "speech_similarity": 0.9,
+          "speech_onset": 0.0,
+          "minutes": 18.8
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot09_a1_custom_1600x896_24fps_5.4s_seed8509.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": 0.9,
+          "speech_onset": 0.0,
+          "minutes": 18.5
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "role": "Ye Chen, line 2 (your chosen take)",
+      "act": 2,
+      "tier": "A",
+      "type": "reuse_trim",
+      "source": "old 5B attempt 1, cut at 4.7 s",
+      "dialogue": "You would even give your own daughter up to the devil!",
+      "sound_plan": "echo into the next shot",
+      "cam_plan": "as shot",
+      "status": "reuse"
+    },
+    {
+      "id": "11",
+      "role": "The Saintess hears it (her reaction)",
+      "act": 2,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 10 attempt 0 (the take you liked)",
+      "dialogue": "",
+      "sound_plan": "single bell",
+      "cam_plan": "slow push-in",
+      "status": "reuse"
+    },
+    {
+      "id": "12",
+      "role": "Ye Chen, line 3: 'You never asked if she was willing'",
+      "act": 2,
+      "tier": "A",
+      "type": "new_existing_image",
+      "source": null,
+      "dialogue": "You never even asked the Saintess if she was willing! I will do her justice today!",
+      "sound_plan": "his voice over a drum",
+      "cam_plan": "locked, same size",
+      "frames": 81,
+      "seconds": 6.75,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. For the first second the young man stays completely silent and still, glaring just past the camera at the dais with his jaw set. Then, in a loud, strained, trembling young man's voice, the young man says: \"You never even asked the Saintess if she was willing! I will do her justice today!\" The mouth moves with the words. The young man stays upright and the same size in the frame: his head and shoulders do not move toward the camera, and only his mouth, brows and hair move slightly. His hair stays tied in the same high ponytail. The camera is locked off and completely static, with no zoom and no push-in. The sound is his voice echoing in the vast hall over a deep, tense drum.",
+      "qc": {
+        "expect_speech": "You never even asked the Saintess if she was willing I will do her justice today",
+        "motion_median": [
+          2,
+          14
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "shot 5B.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot12_a0_custom_1600x896_24fps_6.8s_seed7512.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "motion median 0.7 outside the band 2-14"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": 1.0,
+          "speech_onset": 1.84,
+          "minutes": 25.9
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot12_a1_custom_1600x896_24fps_6.8s_seed8512.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "slight zoom toward the lens (1.36x)",
+            "audio clips"
+          ],
+          "zoom_max": 1.36,
+          "speech_similarity": 1.0,
+          "speech_onset": 0.66,
+          "minutes": 26.0
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "role": "The Elder: silent glare building",
+      "act": 2,
+      "tier": "B",
+      "type": "reuse_trim",
+      "source": "old shot 6 attempt 0, first 1.7 s only",
+      "dialogue": "",
+      "sound_plan": "",
+      "cam_plan": "as shot",
+      "status": "reuse"
+    },
+    {
+      "id": "14",
+      "role": "The Elder roars (speech after a 1 s hold)",
+      "act": 2,
+      "tier": "A",
+      "type": "new_existing_image",
+      "source": null,
+      "dialogue": "Blasphemous! How dare you, a puny disciple, go against the Archbishop!",
+      "sound_plan": "booming voice, echo",
+      "cam_plan": "locked, same size, he does NOT lean in",
+      "frames": 65,
+      "seconds": 5.42,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. For the first second the elder stays completely silent and still, glaring just past the camera, his jaw tight. Then, in an angry, harsh, booming old man's voice, the elder says: \"Blasphemous! How dare you, a puny disciple, go against the Archbishop!\" The mouth moves with the words. The elder stays upright and the same size in the frame: his head and shoulders do not move toward the camera, and only his mouth, brows and hair move slightly. His crown stays on his head and he does not lean forward. The camera is locked off and completely static, with no zoom and no push-in. The sound is his booming voice echoing in the hall with the audible murmur of the crowd beneath it.",
+      "qc": {
+        "expect_speech": "Blasphemous How dare you a puny disciple go against the Archbishop",
+        "motion_median": [
+          2,
+          14
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "shot 6.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot14_a0_custom_1600x896_24fps_5.4s_seed7514.mp4",
+          "verdict": "FAIL",
+          "fails": [
+            "hold failed: subject/camera zooms toward the lens (1.52x; limit 1.5) - face will morph"
+          ],
+          "warns": [
+            "audio clips",
+            "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+          ],
+          "zoom_max": 1.52,
+          "speech_similarity": 1.0,
+          "speech_onset": 0.0,
+          "minutes": 18.4
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot14_a1_custom_1600x896_24fps_5.4s_seed8514.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips"
+          ],
+          "zoom_max": 1.24,
+          "speech_similarity": 0.83,
+          "speech_onset": 0.7,
+          "minutes": 18.6
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "role": "Gossip: two disciples (the crowd thinks he is a madman)",
+      "act": 2,
+      "tier": "B",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "Is Ye Chen mad? Charging in here and saying such things?",
+      "sound_plan": "the line, murmur",
+      "cam_plan": "locked",
+      "frames": 65,
+      "seconds": 5.42,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. For the first second the young disciple on the left stays completely silent and still, staring at the aisle in disbelief. Then, in a scoffing young man's voice, the young disciple on the left says: \"Is Ye Chen mad? Charging in here and saying such things?\" The mouth moves with the words. The young disciple on the left stays upright and the same size in the frame: his head and shoulders do not move toward the camera, and only his mouth, brows and hair move slightly. The disciple beside him stays seated and keeps looking at the aisle. The camera is locked off and completely static, with no zoom and no push-in. The sound is his voice, the rustle of robes and the murmur of the crowd.",
+      "qc": {
+        "expect_speech": "Is Ye Chen mad Charging in here and saying such things",
+        "must_hold": "both stay seated"
+      },
+      "takes": 2,
+      "frame": "N5.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot15_a0_custom_1600x896_24fps_5.4s_seed7515.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+          ],
+          "zoom_max": 1.2,
+          "speech_similarity": 1.0,
+          "speech_onset": 0.0,
+          "minutes": 13.9
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot15_a1_custom_1600x896_24fps_5.4s_seed8515.mp4",
+          "verdict": "PASS",
+          "fails": [],
+          "warns": [],
+          "zoom_max": 1.16,
+          "speech_similarity": 1.0,
+          "speech_onset": 0.84,
+          "minutes": 13.8
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "role": "THE KEY LINE: the Direct Disciple, frightened, whispers the name",
+      "act": 2,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "If he angers the young master, he could bring down the entire Holy Land.",
+      "sound_plan": "his shaky voice, then silence",
+      "cam_plan": "locked, same size",
+      "frames": 73,
+      "seconds": 6.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. For the first second the disciple stays frozen and silent, his eyes flicking toward the back of the hall behind the camera and back again. Then, in a shaky, frightened, urgent young man's voice, speaking quickly, he says: \"If he angers the young master, he could bring down the entire Holy Land.\" His mouth moves with the words and a bead of sweat slides down his temple. The disciple stays upright and the same size in the frame: his head and shoulders do not move toward the camera, and only his mouth, brows and hair move slightly. The camera is locked off and completely static, with no zoom and no push-in. The sound is his shaky voice, one sharp inhale and then a sudden stillness in the hall.",
+      "qc": {
+        "expect_speech": "If he angers the young master he could bring down the entire Holy Land",
+        "motion_median": [
+          2,
+          14
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 3,
+      "frame": "D1.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot16_a0_custom_1600x896_24fps_6.1s_seed7516.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": 1.0,
+          "speech_onset": 0.78,
+          "minutes": 21.1
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot16_a1_custom_1600x896_24fps_6.1s_seed8516.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips"
+          ],
+          "zoom_max": 1.04,
+          "speech_similarity": 1.0,
+          "speech_onset": 0.66,
+          "minutes": 21.9
+        },
+        {
+          "attempt": 2,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot16_a2_custom_1600x896_24fps_6.1s_seed9516.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": 1.0,
+          "speech_onset": 0.78,
+          "minutes": 21.1
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "role": "At 'young master' the faces around him FREEZE: one swallows, sweat, eyes dart toward the back",
+      "act": 2,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "the hall goes quiet",
+      "cam_plan": "locked",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The three disciples freeze at the words they have just heard; the one in the middle swallows hard and a bead of sweat slides down his temple, and all three flick their eyes toward the back of the hall behind the camera and then quickly lower them. They stay standing exactly where they are. The camera is locked off and completely static, with no zoom and no push-in. The sound is a hall suddenly going completely silent, a sharp inhale and one deep distant bell.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ],
+        "must_hold": "all three stay standing in place"
+      },
+      "takes": 2,
+      "frame": "N6.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot17_a0_custom_1600x896_24fps_4.1s_seed7517.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is very quiet (rms 0.007); fix in the sound pass"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 10.9
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot17_a1_custom_1600x896_24fps_4.1s_seed8517.mp4",
+          "verdict": "FAIL",
+          "fails": [
+            "hold failed: layout changed fast (jump 16.2; limit 12) - 'all three stay standing in place'"
+          ],
+          "warns": [
+            "audio is very quiet (rms 0.008); fix in the sound pass"
+          ],
+          "zoom_max": 1.04,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 11.1
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "role": "Cut to the throne again: the shape has not moved, steam rises, the empty circle",
+      "act": 2,
+      "tier": "A",
+      "type": "new_existing_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "silence + one deep note",
+      "cam_plan": "slow push toward the throne",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The far end of the vast hall in strong backlight: the dark silhouette on the plain black-jade throne has not moved at all; a thin curl of steam rises from the cup in its hand, golden dust drifts in the light and the circle of empty white-jade floor around the steps stays empty while the packed crowd stands frozen. The camera pushes very slowly and steadily toward the throne. The sound is a deep resonant note that swells and total silence around it.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ],
+        "locked": false
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 1,
+      "frame": "N2.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot18_a0_custom_1600x896_24fps_4.1s_seed7518.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is only a low rumble (centroid 52 Hz)"
+          ],
+          "zoom_max": 1.04,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 13.8
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "role": "HUSH: the whole hall goes still, dust hangs in the sunbeams",
+      "act": 3,
+      "tier": "B",
+      "type": "new_existing_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "sound drops out",
+      "cam_plan": "locked, everything freezes",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. Everything in the vast hall goes completely still: the incense smoke hangs motionless in the air, the golden dust freezes in the sunbeams, the banners stop swaying and the disciples do not move. The camera is locked off and completely static, with no zoom and no push-in. The sound is a sudden total silence broken only by one deep, distant resonant note.",
+      "qc": {
+        "motion_median": [
+          0.3,
+          8
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 1,
+      "frame": "Shot 1.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot19_a0_custom_1600x896_24fps_4.1s_seed7519.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips",
+            "audio is only a low rumble (centroid 52 Hz)"
+          ],
+          "zoom_max": 1.04,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 16.5
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "role": "The Archbishop, eyes closed, perfectly still ... eyes open ... he looks at us for 2 s. No words.",
+      "act": 3,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "a deep resonant tone as the eyes open",
+      "cam_plan": "locked",
+      "frames": 65,
+      "seconds": 5.42,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The Archbishop stands completely still with his eyes closed, his face calm and severe, a faint golden glow around his head. After a moment his eyes open slowly and he fixes his gaze straight ahead, cold and commanding, holding it without speaking or moving, the golden glow brightening very slightly. He stays the same size in the frame and his mouth stays closed. The camera is locked off and completely static, with no zoom and no push-in. The sound is a deep resonant tone that swells as his eyes open.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "A1.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot20_a0_custom_1600x896_24fps_5.4s_seed7520.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is only a low rumble (centroid 74 Hz)"
+          ],
+          "zoom_max": 1.2,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 18.9
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot20_a1_custom_1600x896_24fps_5.4s_seed8520.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips",
+            "audio is only a low rumble (centroid 96 Hz)"
+          ],
+          "zoom_max": 1.24,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 18.8
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "role": "His aura floods the hall and he speaks",
+      "act": 3,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 8 (speech starts at 0.0 s there, so shot 20 supplies the pause)",
+      "dialogue": "Ye Chen, is it? I remember you. You came to my Holy Land seeking refuge.",
+      "sound_plan": "resonant tone, reverb",
+      "cam_plan": "as shot",
+      "status": "reuse"
+    },
+    {
+      "id": "22",
+      "role": "Ye Chen under the pressure",
+      "act": 3,
+      "tier": "A",
+      "type": "reuse",
+      "source": "old shot 9 attempt 0 (passed)",
+      "dialogue": "I am simply requesting justice for the Saintess.",
+      "sound_plan": "pressure drone",
+      "cam_plan": "as shot",
+      "status": "reuse"
+    },
+    {
+      "id": "23",
+      "role": "The Archbishop stammers 'T-To the devil?' and his eyes FLICK toward the back of the hall",
+      "act": 3,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "T-To the devil? How slanderous!",
+      "sound_plan": "his line, a sharp inhale",
+      "cam_plan": "locked, same size",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. For the first second the archbishop stays completely silent and still, scowling, his jaw tight. Then, in a deep, offended, faltering middle-aged man's voice, the archbishop says: \"T-To the devil? How slanderous!\" The mouth moves with the words. The Archbishop stays upright and the same size in the frame: his head and shoulders do not move toward the camera, and only his mouth, brows and hair move slightly. On the word devil his eyes flick sideways toward the back of the hall and quickly return. The camera is locked off and completely static, with no zoom and no push-in. The sound is his voice echoing with the reverb of the hall and a sharp inhale.",
+      "qc": {
+        "expect_speech": "T To the devil How slanderous",
+        "motion_median": [
+          2,
+          14
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "A2.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot23_a0_custom_1600x896_24fps_4.1s_seed7523.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": 0.91,
+          "speech_onset": 0.78,
+          "minutes": 14.0
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot23_a1_custom_1600x896_24fps_4.1s_seed8523.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips",
+            "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)",
+            "speech runs to the very end of the clip (may be cut off)"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": 0.91,
+          "speech_onset": 0.0,
+          "minutes": 14.6
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "role": "The crowd misreads it: sneers ('he is only jealous')",
+      "act": 4,
+      "tier": "B",
+      "type": "reuse_trim",
+      "source": "old shot 7 attempt 0, first 1.8 s only",
+      "dialogue": "",
+      "sound_plan": "stifled chuckle",
+      "cam_plan": "as shot",
+      "status": "reuse"
+    },
+    {
+      "id": "25",
+      "role": "THE CLICK: the cup is set down on the lacquer, tea ripples; the sound rings through a hall that has stopped breathing",
+      "act": 4,
+      "tier": "A",
+      "type": "new_existing_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "one clear 'tock', then silence",
+      "cam_plan": "almost static",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. A pale hand in a long midnight-blue sleeve holds a jade tea cup; the hand slowly lowers the cup and sets it down on the black lacquer table with a single clear click, the tea rippling once and the steam swaying; nothing else moves. The camera is locked off and completely static, with no zoom and no push-in. The sound is one clear sharp tock of porcelain on lacquer that rings out and echoes through a silent hall.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ]
+      },
+      "takes": 2,
+      "frame": "shot 4 teacup.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot25_a0_custom_1600x896_24fps_4.1s_seed7525.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 11.1
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot25_a1_custom_1600x896_24fps_4.1s_seed8525.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is very quiet (rms 0.013); fix in the sound pass"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 12.5
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "role": "Ye Chen notices the silence; his eyes slide toward the back",
+      "act": 4,
+      "tier": "A",
+      "type": "new_existing_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "silence",
+      "cam_plan": "locked, same size",
+      "frames": 49,
+      "seconds": 4.08,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young man stands still; slowly the anger leaves his face as he senses the silence: his brows lift slightly, his eyes widen a little and slide to the side and past the camera, toward the back of the hall. His mouth stays closed and he stays the same size in the frame; his head and shoulders do not move toward the camera and his hair stays tied in the same high ponytail. The camera is locked off and completely static, with no zoom and no push-in. The sound is the complete silence of a hall and one slow heartbeat.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "shot 5B.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot26_a0_custom_1600x896_24fps_4.1s_seed7526.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is very quiet (rms 0.020); fix in the sound pass",
+            "audio is only a low rumble (centroid 67 Hz)"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 13.9
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot26_a1_custom_1600x896_24fps_4.1s_seed8526.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is very quiet (rms 0.005); fix in the sound pass",
+            "audio is only a low rumble (centroid 75 Hz)"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 13.8
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "role": "The crowd turns as one and bows; the aisle opens",
+      "act": 4,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "rustle of hundreds of robes",
+      "cam_plan": "slow push forward",
+      "frames": 65,
+      "seconds": 5.42,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. On both sides of the aisle the disciples, who stand facing the aisle, turn together and bow deeply toward the far end of the hall, their hair and sleeves swinging and settling, until every head is lowered; the white jade aisle in the middle stays empty. The camera pushes slowly forward along the aisle toward the dark throne at the far end. The sound is the loud rustle of hundreds of silk robes as the whole hall bows, then total silence.",
+      "qc": {
+        "motion_median": [
+          2,
+          14
+        ],
+        "locked": false
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "R3.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot27_a0_custom_1600x896_24fps_5.4s_seed7527.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is very quiet (rms 0.011); fix in the sound pass"
+          ],
+          "zoom_max": 1.0,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 25.5
+        }
+      ],
+      "note": "take 1 rendered (pass); take 2 was stopped by the director at stage 2 - re-run: python episode_run_v2.py ye-chen-ep1-v2 27"
+    },
+    {
+      "id": "28",
+      "role": "REVEAL: Gu Changge on the dark throne, big enough to read his face, the whole hall bowing to him",
+      "act": 4,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "",
+      "sound_plan": "deep tone swelling",
+      "cam_plan": "slow push toward the throne",
+      "frames": 81,
+      "seconds": 6.75,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young man sits perfectly still on the dark throne, completely indifferent, a thin curl of steam rising from the cup in his hand; at the edges of the frame the disciples bow lower and lower. Nothing about him moves except a few strands of his hair and the hem of his robe stirring in a slow breeze, and he stays the same size in the frame. The camera is locked off and completely static, with no zoom and no push-in. The sound is a deep resonant tone slowly swelling and the rustle of robes as the crowd bows.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "R4.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot28_a0_custom_1600x896_24fps_6.8s_seed7528.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is only a low rumble (centroid 70 Hz)"
+          ],
+          "zoom_max": 1.04,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 26.6
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot28_a1_custom_1600x896_24fps_6.8s_seed8528.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio is only a low rumble (centroid 85 Hz)"
+          ],
+          "zoom_max": 1.04,
+          "speech_similarity": null,
+          "speech_onset": null,
+          "minutes": 28.3
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "role": "Gu Changge sips his tea, utterly indifferent",
+      "act": 4,
+      "tier": "A",
+      "type": "reuse_trim",
+      "source": "old shot 12 attempt 0, first 2.7 s only",
+      "dialogue": "",
+      "sound_plan": "tone",
+      "cam_plan": "as shot",
+      "status": "reuse"
+    },
+    {
+      "id": "30",
+      "role": "He lifts his eyes and looks straight at us. One look. Narration over it.",
+      "act": 4,
+      "tier": "A",
+      "type": "new_image",
+      "source": null,
+      "dialogue": "(narrator, mouth closed) And that young man was none other than Gu Changge.",
+      "sound_plan": "narration, tone resolves",
+      "cam_plan": "locked, same size",
+      "frames": 81,
+      "seconds": 6.75,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young man sits perfectly still, his eyes lowered. After a moment, slowly, his eyelids lift and his calm, cold gaze rises until it meets the camera directly and holds there, utterly indifferent. His mouth stays closed; his head and shoulders do not move toward the camera and he stays the same size in the frame; only a few strands of hair stir. The camera is locked off and completely static, with no zoom and no push-in. The sound is a calm, deep narrator's voice, off-screen, saying: \"And that young man was none other than Gu Changge.\" over a deep tone that swells and fades.",
+      "qc": {
+        "expect_speech": "And that young man was none other than Gu Changge",
+        "motion_median": [
+          1,
+          8
+        ]
+      },
+      "render_override": {
+        "refinement_steps": 2,
+        "reason": "free compute: 2-step refinement for hero/dense shots"
+      },
+      "takes": 2,
+      "frame": "R5.png",
+      "status": "takes_ready",
+      "takes_results": [
+        {
+          "attempt": 0,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot30_a0_custom_1600x896_24fps_6.8s_seed7530.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "audio clips",
+            "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+          ],
+          "zoom_max": 1.12,
+          "speech_similarity": 0.9,
+          "speech_onset": 0.0,
+          "minutes": 28.3
+        },
+        {
+          "attempt": 1,
+          "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot30_a1_custom_1600x896_24fps_6.8s_seed8530.mp4",
+          "verdict": "WARN",
+          "fails": [],
+          "warns": [
+            "slight zoom toward the lens (1.36x)",
+            "audio clips",
+            "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)"
+          ],
+          "zoom_max": 1.36,
+          "speech_similarity": 0.8,
+          "speech_onset": 0.0,
+          "minutes": 25.3
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "role": "Cut to black, title card (post-production, no render)",
+      "act": 4,
+      "tier": "A",
+      "type": "reuse",
+      "source": "made in post",
+      "dialogue": "",
+      "sound_plan": "silence, one note",
+      "cam_plan": "",
+      "status": "reuse"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "episode": "ye-chen-ep1-v2",
+  "shot": "23",
+  "attempt": 1,
+  "video": "videos\\episodes\\ye-chen-ep1-v2\\shots\\shot23_a1_custom_1600x896_24fps_4.1s_seed8523.mp4",
+  "frames": 98,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "audio clips",
+    "speech starts too early (0.00 s): no beat of silent presence first (want 0.7-1.8 s)",
+    "speech runs to the very end of the clip (may be cut off)"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 19.4,
+    "motion": {
+      "median": 2.0,
+      "p90": 10.2,
+      "max": 21.5
+    },
+    "layout_jump": 20.5,
+    "zoom_max": 1.0,
+    "zoom_final": 1.0,
+    "sharpness_min_over_median": 0.89,
+    "audio": {
+      "rms": 0.104,
+      "peak": 1.142,
+      "centroid_hz": 642,
+      "active_fraction": 0.5,
+      "finite": true
+    },
+    "speech": {
+      "expected": "T To the devil How slanderous",
+      "heard": "To  the  devil?  How  slanderous!",
+      "similarity": 0.91,
+      "onset_s": 0.0,
+      "end_s": 4.02,
+      "clip_s": 4.05
+    },
+    "picture_fails": []
+  }
+}
