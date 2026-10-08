@@ -209,7 +209,8 @@ for _u in dit_units:
     _b.ff.forward = _chunked(_b.ff.forward)
 
 RESUME_S1 = TWOSTAGE and os.environ.get("RESUME", "0") == "1" and os.path.exists(LAT + ".stage1")
-ds = make_ds(0 if RESUME_S1 else STEPS)
+SYNC_S1 = os.environ.get("SYNC_S1", "0") == "1"   # large stage 1 (e.g. 1024x576): synchronous layer streaming frees ~3 GB of RAM for activations
+ds = make_ds(0 if (RESUME_S1 or SYNC_S1) else STEPS)
 n = ds.load_resident()
 for name, p in dit.named_parameters():  # params absent from the checkpoint (unused keyframe embedding)
     if p.device.type == "meta" and not name.startswith("transformer_blocks."):

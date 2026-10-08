@@ -68,6 +68,8 @@ prev_dir = os.path.join(ROOT, "previews", tag)
 shutil.rmtree(prev_dir, ignore_errors=True)
 env = dict(os.environ, PREVIEW_DIR=prev_dir, SEED=str(a.seed), SKIPDEC="1", LAT=lat, W=str(m["W"]), H=str(m["H"]), FRAMES=str(frames), FPS=str(m["fps"]),
            PROMPT=prompt, BOS="1", MAXSEQ="512", PYTHONUNBUFFERED="1")
+if m["W"] * m["H"] * frames > 900 * 448 * 65:      # big stage 1: not enough RAM for the prefetch buffers + activations
+    env["SYNC_S1"] = "1"
 if m.get("s1"):
     env["S1SIGMAS"] = m["s1"]
 if a.image:

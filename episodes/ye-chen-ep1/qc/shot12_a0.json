@@ -1,0 +1,38 @@
+{
+  "episode": "ye-chen-ep1",
+  "shot": "12",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1\\shots\\shot12_a0_custom_1600x896_24fps_6.8s_seed512.mp4",
+  "frames": 162,
+  "verdict": "WARN",
+  "fails": [],
+  "warns": [
+    "hold borderline: layout jump 15.1 (limit 14) - 'he stays on the throne'",
+    "audio clips"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 22.3,
+    "motion": {
+      "median": 10.6,
+      "p90": 13.0,
+      "max": 13.8
+    },
+    "layout_jump": 15.1,
+    "sharpness_min_over_median": 0.9,
+    "audio": {
+      "rms": 0.3126,
+      "peak": 1.163,
+      "centroid_hz": 201,
+      "active_fraction": 1.0,
+      "finite": true
+    },
+    "speech": {
+      "expected": "And that young man was none other than Gu Changge",
+      "heard": "And  that  young  man  was  none  other  than  Gu  Changge.",
+      "similarity": 1.0,
+      "onset_s": 0.74,
+      "end_s": 4.88,
+      "clip_s": 6.73
+    }
+  }
+}

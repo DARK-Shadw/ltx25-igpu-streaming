@@ -1,0 +1,39 @@
+{
+  "episode": "ye-chen-ep1",
+  "shot": "05B",
+  "attempt": 2,
+  "video": "videos\\episodes\\ye-chen-ep1\\shots\\shot05B_a2_custom_1600x896_24fps_5.4s_seed2505.mp4",
+  "frames": 130,
+  "verdict": "FAIL",
+  "fails": [
+    "hold failed: layout changed fast (jump 30.8; limit 14) - 'he stays in place'"
+  ],
+  "warns": [
+    "audio clips"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 24.2,
+    "motion": {
+      "median": 2.8,
+      "p90": 14.1,
+      "max": 27.6
+    },
+    "layout_jump": 30.8,
+    "sharpness_min_over_median": 0.76,
+    "audio": {
+      "rms": 0.1948,
+      "peak": 1.284,
+      "centroid_hz": 1078,
+      "active_fraction": 1.0,
+      "finite": true
+    },
+    "speech": {
+      "expected": "You would even give your own daughter up to the devil",
+      "heard": "You  would  even  give  your  own  daughter  up  to  the  devil!",
+      "similarity": 1.0,
+      "onset_s": 0.66,
+      "end_s": 4.02,
+      "clip_s": 5.37
+    }
+  }
+}

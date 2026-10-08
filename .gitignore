@@ -28,3 +28,8 @@ _hf_probe/
 # studio UI scratch
 previews/
 studio_inputs/
+
+# episode artwork (large images stay local; prompts/plans are committed)
+episodes/**/*.png
+episodes/**/*.jpg
+episodes/**/*.webp

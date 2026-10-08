@@ -10,7 +10,7 @@ def read_audio(path):
     c.close(); return np.concatenate(out, axis=1).astype(np.float32), sr
 
 def stitch(shots, out_path, fps=24, xfade_ms=300, crf=17):
-    """shots: list of dicts {path, drop_first_frames}"""
+    """shots: list of dicts {path, drop_first_frames, frame_fn (optional), gain (optional linear)}"""
     W = H = 0                                                           # output size = the largest clip (smaller clips are upscaled, never the reverse)
     for sh in shots:
         c0 = av.open(sh["path"]); v0 = c0.streams.video[0]
@@ -23,14 +23,19 @@ def stitch(shots, out_path, fps=24, xfade_ms=300, crf=17):
     sr = None; tracks = []; n_out = 0; kept = []
     for sh in shots:
         a, sr = read_audio(sh["path"]); drop = sh.get("drop_first_frames", 0)
+        a = a * float(sh.get("gain", 1.0))                                                           # optional per-shot gain (loudness match)
         c = av.open(sh["path"]); k = 0
         for fr in c.decode(video=0):
-            if k >= drop:
-                nf = av.VideoFrame.from_ndarray(fr.to_ndarray(format="rgb24") if (fr.width, fr.height) == (W, H) else fr.reformat(width=W, height=H, format="rgb24", interpolation="LANCZOS").to_ndarray(), format="rgb24")   # clips of other sizes are resized to the output size
+            if k >= drop and (not sh.get("trim_end_s") or (k - drop) < int(round(sh["trim_end_s"] * fps))):
+                arr = fr.to_ndarray(format="rgb24") if (fr.width, fr.height) == (W, H) else fr.reformat(width=W, height=H, format="rgb24", interpolation="LANCZOS").to_ndarray()   # clips of other sizes are resized to the output size
+                if sh.get("frame_fn"): arr = sh["frame_fn"](arr)                                       # optional per-shot picture transform (colour match / grade)
+                nf = av.VideoFrame.from_ndarray(arr, format="rgb24")
                 for pkt in vs.encode(nf): out.mux(pkt)
                 n_out += 1
             k += 1
         c.close(); kept.append(k - drop)
+        if sh.get("trim_end_s"):                                                                # cut the clip's end (e.g. cut on the last word)
+            keep_n = min(kept[-1], int(round(sh["trim_end_s"] * fps))); kept[-1] = keep_n
         a = a[:, int(sr * drop / fps):]                                 # keep audio aligned with the dropped frames
         tracks.append(a)
     for pkt in vs.encode(None): out.mux(pkt)

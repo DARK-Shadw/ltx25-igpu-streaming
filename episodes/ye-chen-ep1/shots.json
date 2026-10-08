@@ -1,0 +1,528 @@
+{
+  "episode": "ye-chen-ep1",
+  "chapter": "Ye Chen confronts the Archbishop at the Saintess canonization; reveal of Gu Changge",
+  "render": {
+    "mode": "flash",
+    "stage1_size": "800x448",
+    "final_size": "1600x896",
+    "gen_fps": 12,
+    "frame_repeat": 2,
+    "refinement_steps": 1,
+    "note": "hero shots may use refinement_steps=2 if the preview looks greasy; frame counts must be 8k+1"
+  },
+  "style_prefix": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame.",
+  "shots": [
+    {
+      "id": "01",
+      "frame": "Shot 1.png",
+      "role": "establishing",
+      "frames": 81,
+      "seconds": 6.75,
+      "analysis": "Symmetrical wide of the golden hall: long white-jade aisle flanked by rows of disciples, dais with Saintess and Archbishop far away, incense smoke, sunbeams. Hundreds of tiny figures can shimmer, so keep every motion slow and subject motion minimal.",
+      "motion": "disciples stand still; banners sway very slightly; incense smoke drifts; dust glitters in sunbeams",
+      "camera": "slow, smooth forward-and-down crane along the center of the aisle, dais stays centered",
+      "audio": "deep low ceremonial horn drone, soft distant chanting, one slow temple bell",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. A vast golden palace hall during a solemn ceremony: rows of disciples stand motionless in neat lines on both sides of the long white jade aisle, the white silk banners sway very slightly, wisps of white incense smoke drift slowly across the floor and golden sunbeams shimmer with floating dust, while at the far end the Saintess and the Archbishop stand still on the dais. The camera glides slowly and smoothly forward and downward along the center of the aisle in one steady, majestic crane move, keeping the dais centered. The sound is a deep, low ceremonial horn drone, soft distant chanting and a single slow temple bell.",
+      "qc": {
+        "motion_median": [
+          1,
+          12
+        ],
+        "expect_speech": null
+      },
+      "status": "locked",
+      "render_override": {
+        "stage1_size": "800x448",
+        "refinement_steps": 2,
+        "reason": "2-step keeps the hall design consistent with shots 2-3 (3-step re-drew the set); V1 assembly uses this"
+      },
+      "selected_video": "videos/episodes/ye-chen-ep1/shots/shot01_a0s2_custom_1600x896_24fps_6.8s_seed501.mp4"
+    },
+    {
+      "id": "02",
+      "frame": "Shot 2.png",
+      "role": "crowd whisper",
+      "frames": 49,
+      "seconds": 4.08,
+      "analysis": "Five senior disciples leaning on a gold railing, whispering, faces large and clear. Railing fills the lower 40 percent of the frame.",
+      "motion": "small head turns and leans, one hand lifts to cover a whisper, sleeves and hair stir",
+      "camera": "almost static, very slow slight push-in (NO pan: a pan this close to a crowd slides everyone out of frame)",
+      "audio": "low unintelligible whispers and murmurs, faint hall ambience",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. Five senior disciples in dark-blue robes remain seated side by side behind the gold railing exactly as in the first frame, whispering to one another: only their heads tilt slightly and their eyes glance sideways, one hand stays raised covering a whisper, their hair and sleeves stir gently; nobody stands up, nobody walks away and all five stay in frame the whole time. The camera is almost completely still, with only a very slow, slight push-in. The sound is low unintelligible whispers and murmurs with faint hall ambience.",
+      "qc": {
+        "motion_median": [
+          1,
+          9
+        ],
+        "expect_speech": null,
+        "must_hold": "all five stay seated and in frame"
+      },
+      "status": "locked",
+      "prompt_v0": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. Five senior disciples in dark-blue robes lean on a gold railing and whisper to each other, one covering his mouth with his hand, small head turns and glances toward the aisle, their long hair and sleeves stirring gently. The camera pans slowly and smoothly to the right along the railing. The sound is low unintelligible whispers and murmurs with faint hall ambience.",
+      "prompt_v0_result": "attempt 0: disciples stood up and left the frame (pan + 'glances toward the aisle' + no hold instruction); last third smeared",
+      "selected_video": "videos/episodes/ye-chen-ep1/shots/shot02_a1_custom_1600x896_24fps_4.1s_seed1502.mp4",
+      "audio_note": "model audio is a very quiet ~115 Hz rumble (rms 0.006), no whispers: replace/augment with ambience in the finishing pass"
+    },
+    {
+      "id": "03",
+      "frame": "Shot 3.png",
+      "role": "saintess intro",
+      "frames": 65,
+      "seconds": 5.42,
+      "analysis": "Saintess centered on dais stairs, hands folded, eyes downcast, petals floating, face clear.",
+      "motion": "hair and ribbons sway in a soft breeze, petals drift, her eyelids slowly rise and her gaze settles ahead, no other movement",
+      "camera": "very slow push-in",
+      "audio": "a clear temple bell rings once, a warm sustained string melody, a steady breeze (no 'soft/gentle/low' words: the model takes them literally)",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The Saintess stands in place exactly as in the first frame with her hands folded in front of her; white petals drift past, her long hair and silk ribbons sway in a gentle breeze, and slowly her eyelids lift and her calm gaze settles on the aisle ahead, with no other movement. The camera pushes in very slowly and steadily. The sound is a clear temple bell that rings once and fades, a warm sustained string melody and a steady breeze.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ],
+        "expect_speech": null,
+        "must_hold": "she stays in place; audio rms >= 0.02"
+      },
+      "status": "locked",
+      "prompt_v0": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The Saintess stands serenely with her hands folded, white petals drifting past, her long hair and silk ribbons swaying gently in a soft breeze; slowly her eyelids lift and her calm gaze settles on the aisle ahead, with no other movement. The camera pushes in very slowly and steadily. The sound is one soft temple bell, gentle strings and faint wind.",
+      "selected_video": "videos/episodes/ye-chen-ep1/shots/shot03_a0_custom_1600x896_24fps_5.4s_seed503.mp4"
+    },
+    {
+      "id": "04",
+      "frame": "shot 4 teacup.png",
+      "role": "insert / plant Gu Changge",
+      "frames": 49,
+      "seconds": 4.08,
+      "analysis": "Close-up of a pale hand holding a jade tea cup, steam, dark table with a censer, hall as bokeh. Face not shown (deliberate).",
+      "motion": "steam curls upward, the tea surface shivers once, the cup lifts a few centimeters, bokeh lights twinkle",
+      "camera": "static with the faintest push-in",
+      "audio": "faint tea ripple, one quiet chime, hush",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. A pale hand in a long midnight-blue sleeve holds a jade tea cup and stays in place; a thin curl of steam rises and drifts, the surface of the tea trembles once and the cup lifts a few centimeters and settles, while in the background the hall glitters as golden bokeh. The camera is almost still with a very slow, slight push-in. The sound is the clear ripple of tea in the cup, one clear bright chime and the deep resonant hum of the huge hall.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ],
+        "expect_speech": null,
+        "must_hold": "the hand and cup stay in place",
+        "hold_jump_max": 22,
+        "hold_note": "the hand lowers the cup onto the table: a big but intended move; fingers, cup and steam stay intact"
+      },
+      "status": "auto_passed",
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. A pale hand holds a jade tea cup, a thin curl of steam rises and drifts, the tea surface trembles once and the cup lifts slightly; in the background the hall glitters as soft golden bokeh. The camera is almost still with the faintest slow push-in. The sound is a quiet ripple of tea, one soft chime and a hush.",
+      "edit": {
+        "cut_in": "hard cut from the Saintess (calm to calm, thematic contrast: she is serene, he is indifferent)",
+        "cut_out": "hold on the cup, then a hard cut to the next shot on the first drum beat",
+        "sound_bridge": "L-cut: shot 3's bell tail rings over the first 0.5 s of this shot",
+        "ends_on": "cup settled, steam rising"
+      },
+      "selected_video": "videos/episodes/ye-chen-ep1/shots/shot04_a0_custom_1600x896_24fps_4.1s_seed504.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "WARN",
+        "fails": [],
+        "warns": [
+          "audio quiet (rms 0.012): fix in the sound pass"
+        ],
+        "note": "judged OK from frames"
+      }
+    },
+    {
+      "id": "05A",
+      "frame": "shot 5.png",
+      "role": "silent establishing of Ye Chen facing the dais",
+      "frames": 49,
+      "seconds": 4.08,
+      "analysis": "Over-the-shoulder from behind Ye Chen, he faces the dais far ahead; back of head, hair, robe, fist visible; no face (silent shot).",
+      "motion": "wind stirs his long hair and sleeve, his fist slowly tightens",
+      "camera": "slow push forward past his shoulder toward the dais",
+      "audio": "tense near-silence, low drum begins, faint murmur from the galleries",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. Seen from behind, the young man stands in place in the middle of the aisle facing the distant dais, wind stirring his long hair and sleeve while his clenched fist slowly tightens; the crowds in the galleries stay still. The camera pushes slowly forward past his shoulder toward the dais. The sound is a steady deep drum beat, a rising wind and the audible murmur of a crowd.",
+      "qc": {
+        "motion_median": [
+          2,
+          14
+        ],
+        "expect_speech": null,
+        "must_hold": "he stays in place facing the dais",
+        "hold_jump_max": 14
+      },
+      "status": "auto_passed",
+      "render_override": {
+        "stage1_size": "800x448",
+        "refinement_steps": 2,
+        "reason": "dense crowd (preflight < 25 dB): 2-step sharpens without re-drawing the set; high-res costs ~40 min"
+      },
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. Seen from behind, the young man stands in the middle of the aisle facing the distant dais, wind stirring his long hair and sleeve while his clenched fist slowly tightens. The camera pushes slowly forward past his shoulder toward the dais. The sound is tense near-silence, a faint murmur from the galleries and a single low drum beat.",
+      "edit": {
+        "cut_in": "J-cut: the deep drum beat starts 0.3 s before the picture cut",
+        "cut_out": "match on action: his fist tightening -> a breath in the face shot",
+        "sound_bridge": "drum and wind continue into 5B",
+        "ends_on": "fist clenched, hair stirring, camera nearly at his shoulder"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot05A_a0_custom_1600x896_24fps_4.1s_seed505.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "WARN",
+        "fails": [],
+        "warns": [
+          "audio clips",
+          "audio is only a low rumble (centroid 56 Hz)"
+        ]
+      }
+    },
+    {
+      "id": "05B",
+      "frame": "shot 5B.png",
+      "role": "dialogue: Ye Chen shouts (hero shot)",
+      "frames": 65,
+      "seconds": 5.42,
+      "analysis": "Centered frontal medium close-up, mouth closed, calm. Face must stay on-model while he speaks. Speech should start about 0.8 s in and last ~3.5 s.",
+      "motion": "he draws a breath, brows lower, then shouts; mouth moves with the words; hair stirs slightly",
+      "camera": "nearly static, faintest push-in",
+      "audio": "his shout echoing in the vast hall over a low tense drum",
+      "dialogue": {
+        "speaker": "Ye Chen",
+        "text": "You would even give your own daughter up to the devil!",
+        "voice": "a young man's loud, strained, trembling voice"
+      },
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young man draws a breath, his brows lower and, with his eyes fixed just beyond the camera, he shouts in a loud, strained, trembling young man's voice: \"You would even give your own daughter up to the devil!\" His mouth moves with the words, his hair stirs slightly, and the camera holds nearly still with the faintest slow push-in. The sound is his echoing shout in the vast hall over a deep, tense drum.",
+      "qc": {
+        "motion_median": [
+          3,
+          14
+        ],
+        "expect_speech": "You would even give your own daughter up to the devil",
+        "must_hold": "he stays in place",
+        "hold_jump_max": 14
+      },
+      "status": "approved",
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young man draws a breath, his brows lower and, with his eyes fixed just beyond the camera, he shouts in a loud, strained, trembling young man's voice: \"You would even give your own daughter up to the devil!\" His mouth moves with the words, his hair stirs slightly, and the camera holds nearly still with the faintest slow push-in. The sound is his echoing shout in the vast hall over a low tense drum.",
+      "edit": {
+        "cut_in": "match on action from 5A (fist tightens -> he draws a breath)",
+        "cut_out": "cut on the end of his last word; the echo of the shout rings over the Elder",
+        "sound_bridge": "L-cut: echo of the shout continues 0.5 s into shot 6",
+        "ends_on": "mouth closing after the line"
+      },
+      "selected_video": "videos/episodes/ye-chen-ep1/shots/shot05B_a1_custom_1600x896_24fps_5.4s_seed1505.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "FAIL",
+        "fails": [
+          "hold failed: layout changed fast (jump 36.6; limit 14) - 'he stays in place'"
+        ],
+        "warns": [
+          "audio clips"
+        ]
+      },
+      "trim_end_s": 4.7,
+      "director_note": "director chose attempt 1 (seed 1505). Speech perfect (0.8-4.7 s). The last third zooms into the face and the ponytail dissolves: trim the shot at ~4.7 s (cut on his last word) when assembling."
+    },
+    {
+      "id": "06",
+      "frame": "shot 6.png",
+      "role": "dialogue: the Elder",
+      "frames": 73,
+      "seconds": 6.08,
+      "analysis": "Centered frontal Elder, glaring, lips closed, dais behind. Line is ~12 words so the shot is 6.1 s.",
+      "motion": "jaw tightens, he steps slightly forward, speaks angrily, a hand-free upper-body motion only",
+      "camera": "static with a very slow push-in",
+      "audio": "booming angry voice echoing, murmuring crowd under it",
+      "dialogue": {
+        "speaker": "Sect Elder",
+        "text": "Blasphemous! How dare you, a puny Sect disciple, go against the Archbishop!",
+        "voice": "an angry elderly man's harsh, booming voice"
+      },
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The stern elder glares, his jaw tightens and he leans slightly forward as he roars in an angry, harsh, booming old man's voice: \"Blasphemous! How dare you, a puny Sect disciple, go against the Archbishop!\" His mouth moves with the words and his long grey goatee shakes slightly. The camera pushes in very slowly. The sound is his echoing booming voice in the hall with the audible murmur of the crowd beneath it.",
+      "qc": {
+        "motion_median": [
+          3,
+          14
+        ],
+        "expect_speech": "Blasphemous How dare you a puny Sect disciple go against the Archbishop",
+        "must_hold": "he stays in place",
+        "hold_jump_max": 14
+      },
+      "status": "needs_modification",
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The stern elder glares, his jaw tightens and he leans slightly forward as he roars in an angry, harsh, booming old man's voice: \"Blasphemous! How dare you, a puny Sect disciple, go against the Archbishop!\" His mouth moves with the words and his long grey goatee shakes slightly. The camera pushes in very slowly. The sound is his echoing booming voice in the hall with a low murmur from the crowd.",
+      "edit": {
+        "cut_in": "reaction cut (the Elder answers the shout)",
+        "cut_out": "cut on the end of the Elder's last word to the crowd reaction",
+        "sound_bridge": "L-cut: echo of the Elder's roar over the first 0.3 s of shot 7",
+        "ends_on": "mouth closing, jaw set"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot06_a1_custom_1600x896_24fps_6.1s_seed1506.mp4",
+      "qc_summary": {
+        "attempt": 1,
+        "verdict": "FAIL",
+        "fails": [
+          "hold failed: layout changed fast (jump 25.0; limit 14) - 'he stays in place'"
+        ],
+        "warns": [
+          "audio clips"
+        ]
+      },
+      "director_note": "face zooms toward the lens and the mouth/face morphs in the second half (my prompt said 'leans slightly forward'); speech is correct (a0 similarity 0.92). Director will describe the fix later."
+    },
+    {
+      "id": "07",
+      "frame": "shot 7.png",
+      "role": "crowd reaction",
+      "frames": 49,
+      "seconds": 4.08,
+      "analysis": "Two disciples whispering, one sneering with his sleeve covering his mouth, third disciple at the right; railing in the foreground.",
+      "motion": "the sneering disciple leans to his neighbor and whispers, eyes flick toward the aisle, a smirk",
+      "camera": "static with a slow drift to the right",
+      "audio": "low unintelligible whispers, a stifled chuckle",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young disciple in the white-and-gold robe stays seated, sneers, leans toward his neighbor and whispers behind his sleeve, his eyes flicking toward the aisle, while the others stay seated and glance on; their hair and sleeves stir slightly and nobody leaves the frame. The camera is almost still with a very slow drift to the right. The sound is a stifled chuckle, the rustle of silk robes and the murmur of the crowd.",
+      "qc": {
+        "motion_median": [
+          2,
+          10
+        ],
+        "expect_speech": null,
+        "must_hold": "everyone stays seated and in frame"
+      },
+      "status": "needs_modification",
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young disciple in the white-and-gold robe sneers, leans toward his neighbor and whispers behind his sleeve, his eyes flicking toward the aisle, while the others glance on; their hair and sleeves stir slightly. The camera drifts slowly to the right. The sound is low unintelligible whispers and a stifled chuckle.",
+      "edit": {
+        "cut_in": "reaction cut (the crowd reacts to the argument)",
+        "cut_out": "hard cut as the deep resonant tone of shot 8 begins",
+        "sound_bridge": "J-cut: shot 8's tone starts 0.4 s before the picture",
+        "ends_on": "sneer, glance toward the aisle"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot07_a0_custom_1600x896_24fps_4.1s_seed507.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "FAIL",
+        "fails": [
+          "hold failed: layout changed fast (jump 32.2; limit 12) - 'everyone stays seated and in frame'"
+        ],
+        "warns": [
+          "motion median 13.0 outside the band 2-10"
+        ]
+      }
+    },
+    {
+      "id": "08",
+      "frame": "Shot 8.png",
+      "role": "dialogue: the Archbishop (aura)",
+      "frames": 81,
+      "seconds": 6.75,
+      "analysis": "Symmetrical frontal Archbishop, eyes closed, gold glow, dais and lanterns behind. Eyes open at ~1 s, glow flares, then the line. Adapted line (the chapter's longer speech is trimmed).",
+      "motion": "eyes slowly open, golden aura swells around him, robes ripple outward, then he speaks calmly with menace",
+      "camera": "slow push-in",
+      "audio": "deep resonant tone as the aura flares, then his calm commanding voice with hall reverb",
+      "dialogue": {
+        "speaker": "Archbishop",
+        "text": "Ye Chen, is it? I remember you. You came to my Holy Land seeking refuge.",
+        "voice": "a deep, calm, authoritative middle-aged man's voice with a hint of menace"
+      },
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The Archbishop's eyes slowly open and a dense golden glow swells around his body, his wide robes rippling gently outward; then, calm and commanding, he says in a deep, authoritative middle-aged man's voice with a hint of menace: \"Ye Chen, is it? I remember you. You came to my Holy Land seeking refuge.\" His mouth moves with the words. The camera pushes in slowly. The sound is a deep resonant tone as the glow flares, then his voice with a hall echo.",
+      "qc": {
+        "motion_median": [
+          3,
+          16
+        ],
+        "expect_speech": "Ye Chen is it I remember you You came to my Holy Land seeking refuge",
+        "must_hold": "he stays in place",
+        "hold_jump_max": 14
+      },
+      "status": "needs_modification",
+      "edit": {
+        "cut_in": "J-cut on the tone",
+        "cut_out": "cut on the end of the line to Ye Chen under pressure",
+        "sound_bridge": "reverb tail of the line over the first 0.3 s of shot 9",
+        "ends_on": "the Archbishop's aura glowing, mouth closed"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot08_a0_custom_1600x896_24fps_6.8s_seed508.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "FAIL",
+        "fails": [
+          "hold failed: layout changed fast (jump 19.5; limit 14) - 'he stays in place'"
+        ],
+        "warns": [
+          "audio clips"
+        ]
+      }
+    },
+    {
+      "id": "09",
+      "frame": "Shot 9.png",
+      "role": "dialogue: Ye Chen under pressure (hero shot)",
+      "frames": 65,
+      "seconds": 5.42,
+      "analysis": "Tight close-up, sweat bead, strained fierce eyes. Face fills the frame, so identity drift is most visible here.",
+      "motion": "a second sweat drop runs down, his jaw tightens, he speaks firmly through the pressure, golden light shimmers",
+      "camera": "static with a minimal push-in",
+      "audio": "his firm strained voice, a low pressure drone",
+      "dialogue": {
+        "speaker": "Ye Chen",
+        "text": "I am simply requesting justice for the Saintess.",
+        "voice": "a young man's firm, strained voice"
+      },
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. Under immense pressure, the young man's jaw tightens and a drop of sweat runs down his temple; with fierce, strained eyes he says in a firm, strained young man's voice: \"I am simply requesting justice for the Saintess.\" His mouth moves with the words and golden light shimmers around him. The camera holds almost still with the faintest push-in. The sound is his firm voice over a deep, heavy pressure drone.",
+      "qc": {
+        "motion_median": [
+          3,
+          14
+        ],
+        "expect_speech": "I am simply requesting justice for the Saintess",
+        "must_hold": "he stays in place",
+        "hold_jump_max": 14
+      },
+      "status": "auto_passed",
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. Under immense pressure, the young man's jaw tightens and a drop of sweat runs down his temple; with fierce, strained eyes he says in a firm, strained young man's voice: \"I am simply requesting justice for the Saintess.\" His mouth moves with the words and golden light shimmers softly around him. The camera holds almost still with the faintest push-in. The sound is his firm voice over a low, heavy pressure drone.",
+      "edit": {
+        "cut_in": "reverse shot (Ye Chen answers the Archbishop)",
+        "cut_out": "eyeline match: he looks toward the dais -> the Saintess shot",
+        "sound_bridge": "the pressure drone continues into shot 10 and fades",
+        "ends_on": "jaw set after the line"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot09_a0_custom_1600x896_24fps_5.4s_seed509.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "WARN",
+        "fails": [],
+        "warns": [
+          "audio clips"
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "frame": "Shot 10.png",
+      "role": "reaction: the Saintess (eyeline match)",
+      "frames": 49,
+      "seconds": 4.08,
+      "analysis": "Close-up of the Saintess, gaze to the lower left, ornaments, soft glow. Subtle only.",
+      "motion": "her gaze lifts slowly and trembles slightly, hair ornaments and strands sway, a faint breath",
+      "camera": "very slow push-in",
+      "audio": "one soft bell, a faint string note, hush",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The Saintess stays in place; her calm gaze slowly lifts and trembles slightly, her silver hair ornaments and loose strands swaying in a breath of wind. The camera pushes in very slowly. The sound is a single clear bell and a sustained string note.",
+      "qc": {
+        "motion_median": [
+          1,
+          10
+        ],
+        "expect_speech": null,
+        "must_hold": "she stays in place",
+        "hold_jump_max": 14
+      },
+      "status": "needs_modification",
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The Saintess's calm gaze slowly lifts and trembles slightly, her silver hair ornaments and loose strands swaying in a soft breath of wind. The camera pushes in very slowly. The sound is one soft bell, a faint string note and a hush.",
+      "edit": {
+        "cut_in": "eyeline match: what Ye Chen sees",
+        "cut_out": "hard cut to silence, then shot 11's hush",
+        "sound_bridge": "bell fades; the crowd murmur stops dead before shot 11 (silence = tension)",
+        "ends_on": "her gaze settled"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot10_a1_custom_1600x896_24fps_4.1s_seed1510.mp4",
+      "qc_summary": {
+        "attempt": 1,
+        "verdict": "FAIL",
+        "fails": [
+          "hold failed: layout changed fast (jump 60.9; limit 14) - 'she stays in place'"
+        ],
+        "warns": [
+          "audio is very quiet (rms 0.002); fix in the sound pass"
+        ]
+      }
+    },
+    {
+      "id": "11",
+      "frame": "shot 11.png",
+      "role": "reveal: the hall bows to Gu Changge",
+      "frames": 81,
+      "seconds": 6.75,
+      "analysis": "Low-angle wide down the aisle to a dark throne with Gu Changge, bowing crowd on both sides, edge silhouettes, light shaft. Many small figures: keep motion slow.",
+      "motion": "the crowd slowly bows deeper, robes and hair stir, Gu Changge stays perfectly still, steam from his cup rises, the shaft of light slowly brightens",
+      "camera": "slow forward push along the aisle toward the throne, staying low",
+      "audio": "sudden hush, a low resonant tone swelling, soft rustle of robes",
+      "dialogue": null,
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The packed crowd on both sides of the aisle slowly bows lower, their robes and hair stirring, while at the far end the young man on the dark throne stays perfectly still, a thin curl of steam rising from his cup and a shaft of white-gold light slowly brightening around him. The camera pushes slowly and steadily forward along the aisle toward the throne, staying low. The sound is a deep resonant tone swelling and the rustle of many robes as the crowd bows.",
+      "qc": {
+        "motion_median": [
+          3,
+          16
+        ],
+        "expect_speech": null
+      },
+      "status": "auto_passed",
+      "render_override": {
+        "stage1_size": "800x448",
+        "refinement_steps": 2,
+        "reason": "dense crowd (preflight < 25 dB): 2-step sharpens without re-drawing the set; high-res costs ~40 min"
+      },
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The packed crowd on both sides of the aisle slowly bows lower, their robes and hair stirring, while at the far end the young man on the dark throne stays perfectly still, a thin curl of steam rising from his cup and a shaft of white-gold light slowly brightening around him. The camera pushes slowly and steadily forward along the aisle toward the throne, staying low. The sound is a sudden hush, a deep resonant tone swelling and the soft rustle of robes.",
+      "edit": {
+        "cut_in": "smash cut from the murmur to a hush, then the deep tone swells",
+        "cut_out": "continuous push toward the throne; cut to the close shot on the swelling tone",
+        "sound_bridge": "the swelling tone continues under shot 12",
+        "ends_on": "Gu Changge centered at the end of the aisle"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot11_a0_custom_1600x896_24fps_6.8s_seed511.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "WARN",
+        "fails": [],
+        "warns": [
+          "audio is only a low rumble (centroid 96 Hz)"
+        ]
+      }
+    },
+    {
+      "id": "12",
+      "frame": "shot 12.png",
+      "role": "the hook: Gu Changge (aura)",
+      "frames": 81,
+      "seconds": 6.75,
+      "analysis": "Reclining on the dark throne, cup near his lips, steam, half-lidded eyes. Complex pose (hand, cup, robes): keep subject motion tiny. Narration is a voice-over; his mouth must NOT move.",
+      "motion": "he slowly takes a sip, lowers the cup, his half-lidded eyes lift slightly toward the camera, steam drifts, robe hem stirs",
+      "camera": "very slow push-in",
+      "audio": "a calm deep narrator's voice, off-screen, over a swelling low tone",
+      "dialogue": {
+        "speaker": "narrator (off-screen)",
+        "text": "And that young man was none other than Gu Changge.",
+        "voice": "a calm, deep narrator's voice, off-screen, his mouth does not move"
+      },
+      "prompt": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young man lounging on the dark throne stays in place, slowly takes a sip of tea and lowers the cup, his half-lidded eyes lifting slightly, a thin curl of steam drifting and the hem of his robe stirring; his mouth stays closed. The camera pushes in very slowly. The sound is a calm, deep narrator's voice, off-screen, saying: \"And that young man was none other than Gu Changge.\" over a swelling deep tone.",
+      "qc": {
+        "motion_median": [
+          2,
+          12
+        ],
+        "expect_speech": "And that young man was none other than Gu Changge",
+        "must_hold": "he stays on the throne",
+        "hold_jump_max": 14
+      },
+      "status": "auto_passed",
+      "prompt_v1": "Premium painterly donghua animation, keeping the exact art style, lighting and character designs of the first frame. The young man lounging on the dark throne slowly takes a sip of tea and lowers the cup, his half-lidded eyes lifting slightly, a thin curl of steam drifting and the hem of his robe stirring; his mouth stays closed. The camera pushes in very slowly. The sound is a calm, deep narrator's voice, off-screen, saying: \"And that young man was none other than Gu Changge.\" over a swelling low tone.",
+      "edit": {
+        "cut_in": "cut on the tone swell",
+        "cut_out": "end of the scene: hold on his face for 1 s after the narration, then fade out (scene end)",
+        "sound_bridge": "tone resolves with the narration",
+        "ends_on": "half-lidded gaze lifting to the camera"
+      },
+      "selected_video": "videos\\episodes\\ye-chen-ep1\\shots\\shot12_a0_custom_1600x896_24fps_6.8s_seed512.mp4",
+      "qc_summary": {
+        "attempt": 0,
+        "verdict": "WARN",
+        "fails": [],
+        "warns": [
+          "hold borderline: layout jump 15.1 (limit 14) - 'he stays on the throne'",
+          "audio clips"
+        ]
+      }
+    }
+  ],
+  "assembly_v1": "videos/episodes/ye-chen-ep1/assembly/scene1_shots1-3_V1_matched.mp4",
+  "edit_plan_file": "episodes/ye-chen-ep1/edit_plan.md"
+}

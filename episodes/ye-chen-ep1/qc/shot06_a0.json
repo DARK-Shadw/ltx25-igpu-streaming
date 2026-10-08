@@ -1,0 +1,39 @@
+{
+  "episode": "ye-chen-ep1",
+  "shot": "06",
+  "attempt": 0,
+  "video": "videos\\episodes\\ye-chen-ep1\\shots\\shot06_a0_custom_1600x896_24fps_6.1s_seed506.mp4",
+  "frames": 146,
+  "verdict": "FAIL",
+  "fails": [
+    "hold failed: layout changed fast (jump 31.5; limit 14) - 'he stays in place'"
+  ],
+  "warns": [
+    "audio clips"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 24.0,
+    "motion": {
+      "median": 10.0,
+      "p90": 18.8,
+      "max": 28.5
+    },
+    "layout_jump": 31.5,
+    "sharpness_min_over_median": 0.62,
+    "audio": {
+      "rms": 0.1677,
+      "peak": 1.143,
+      "centroid_hz": 1771,
+      "active_fraction": 1.0,
+      "finite": true
+    },
+    "speech": {
+      "expected": "Blasphemous How dare you a puny Sect disciple go against the Archbishop",
+      "heard": "Blasphemous!  How  dare  you,  a  puny  sect  disciple,  go  against  the  archbivship!",
+      "similarity": 0.92,
+      "onset_s": 0.0,
+      "end_s": 5.66,
+      "clip_s": 6.05
+    }
+  }
+}

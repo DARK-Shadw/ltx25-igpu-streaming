@@ -1,0 +1,31 @@
+{
+  "episode": "ye-chen-ep1",
+  "shot": "10",
+  "attempt": 1,
+  "video": "videos\\episodes\\ye-chen-ep1\\shots\\shot10_a1_custom_1600x896_24fps_4.1s_seed1510.mp4",
+  "frames": 98,
+  "verdict": "FAIL",
+  "fails": [
+    "hold failed: layout changed fast (jump 60.9; limit 14) - 'she stays in place'"
+  ],
+  "warns": [
+    "audio is very quiet (rms 0.002); fix in the sound pass"
+  ],
+  "metrics": {
+    "start_frame_psnr_db": 22.1,
+    "motion": {
+      "median": 7.6,
+      "p90": 33.1,
+      "max": 49.3
+    },
+    "layout_jump": 60.9,
+    "sharpness_min_over_median": 0.53,
+    "audio": {
+      "rms": 0.0021,
+      "peak": 0.026,
+      "centroid_hz": 213,
+      "active_fraction": 0.07,
+      "finite": true
+    }
+  }
+}
