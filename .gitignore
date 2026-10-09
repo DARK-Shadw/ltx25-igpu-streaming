@@ -33,3 +33,7 @@ studio_inputs/
 episodes/**/*.png
 episodes/**/*.jpg
 episodes/**/*.webp
+
+# showcase media is committed on purpose
+!docs/media/
+!docs/media/*

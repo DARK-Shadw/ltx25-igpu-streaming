@@ -9,13 +9,14 @@ def read_audio(path):
     for r in rs.resample(None): out.append(r.to_ndarray())
     c.close(); return np.concatenate(out, axis=1).astype(np.float32), sr
 
-def stitch(shots, out_path, fps=24, xfade_ms=300, crf=17):
+def stitch(shots, out_path, fps=24, xfade_ms=300, crf=17, size=None):
     """shots: list of dicts {path, drop_first_frames, frame_fn (optional), gain (optional linear)}"""
     W = H = 0                                                           # output size = the largest clip (smaller clips are upscaled, never the reverse)
     for sh in shots:
         c0 = av.open(sh["path"]); v0 = c0.streams.video[0]
         if v0.width * v0.height > W * H: W, H = v0.width, v0.height
         c0.close()
+    if size: W, H = size
     out = av.open(out_path, "w")
     vs = out.add_stream("libx264", rate=fps); vs.width, vs.height, vs.pix_fmt = W, H, "yuv420p"; vs.options = {"crf": str(crf), "preset": "medium"}
     SR = 48000
@@ -27,8 +28,9 @@ def stitch(shots, out_path, fps=24, xfade_ms=300, crf=17):
         c = av.open(sh["path"]); k = 0
         for fr in c.decode(video=0):
             if k >= drop and (not sh.get("trim_end_s") or (k - drop) < int(round(sh["trim_end_s"] * fps))):
-                arr = fr.to_ndarray(format="rgb24") if (fr.width, fr.height) == (W, H) else fr.reformat(width=W, height=H, format="rgb24", interpolation="LANCZOS").to_ndarray()   # clips of other sizes are resized to the output size
-                if sh.get("frame_fn"): arr = sh["frame_fn"](arr)                                       # optional per-shot picture transform (colour match / grade)
+                if sh.get("raw"): arr = sh["frame_fn"](fr.to_ndarray(format="rgb24"), k - drop)       # frame_fn builds the final W x H picture itself (reels)
+                else: arr = fr.to_ndarray(format="rgb24") if (fr.width, fr.height) == (W, H) else fr.reformat(width=W, height=H, format="rgb24", interpolation="LANCZOS").to_ndarray()   # clips of other sizes are resized to the output size
+                if sh.get("frame_fn") and not sh.get("raw"): arr = sh["frame_fn"](arr)                                       # optional per-shot picture transform (colour match / grade)
                 nf = av.VideoFrame.from_ndarray(arr, format="rgb24")
                 for pkt in vs.encode(nf): out.mux(pkt)
                 n_out += 1
