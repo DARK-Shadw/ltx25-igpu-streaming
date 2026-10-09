@@ -11,14 +11,34 @@ What it costs: it is not fast. A 5-second anime clip with sound takes about 14 m
 
 Then I used it to make an anime scene from my own artwork: start frames in, shots out, automatic QC for the failures I kept seeing (faces zooming toward the lens, crowds walking out of frame).
 
-Repo (code, benchmarks, the full bug log): <link>
+Repo (code, benchmarks, the full bug log): https://github.com/DARK-Shadw/ltx25-igpu-streaming
 Clips attached. Questions and criticism welcome - especially from anyone who has tried streaming inference on other hardware.
 
 #AI #VideoGeneration #OpenSource #EdgeAI #Intel
 
-## Reddit (r/StableDiffusion, r/comfyui, r/IntelArc - check each sub's self-promotion rules first)
-Title: I ran the full unquantized LTX-2.5 (22B) with audio on a laptop iGPU (15.6 GB RAM, no dGPU) - 5 s anime clip in ~14 min
-Body: video first. Then: weights streamed from NVMe layer by layer, bf16, no quantization, distilled model, T2V + I2V + native audio. Table of measured times (anime 14 / 47 min, realistic 20 min). It is slow - that is not the claim; the claim is that it runs at all on this hardware. Known weaknesses: fast motion smears for a few frames, anime is 12 fps doubled. CUDA path exists but is untested. Repo + full bug log: <link>. Happy to answer questions about the streaming engine.
+## Reddit (r/StableDiffusion, r/comfyui, r/IntelArc - check each sub's self-promotion rules first; attach the video first)
+Title: I'm learning inference engineering, so I tried to run a 22B video model (LTX-2.5, unquantized, with audio) on my laptop's integrated GPU
+
+Body:
+I'm trying to get into inference engineering, and I wanted a project that would force me to learn the hard parts instead of just calling a library. So I picked something that shouldn't fit: **LTX-2.5 (22B), in bf16 with no quantization**, on an **Intel Core Ultra 5 iGPU with 15.6 GB of shared RAM**. No discrete GPU.
+
+The model is about 66 GB on disk, so I never load it. The weights stay on NVMe and get streamed **layer by layer**: aligned reads into a small pinned buffer, a prefetch thread loading layer n+1 while layer n computes, and the weights swapped in and out with hooks. It uses the distilled model, and it does **text-to-video, image-to-video and native audio**.
+
+**Measured on this machine:**
+
+| Result | Time |
+|---|---|
+| Anime clip, 5.4 s, 1536x896, with sound | ~14 min |
+| Anime clip, best quality (true 24 fps) | ~47 min |
+| Realistic clip, 4 s, 1280x704 | ~20 min |
+
+It's slow, and that's not the point. The point was to find out whether it runs at all on hardware like this, and to learn what breaks. A lot did (memory alignment, a vocoder that gave silence in bf16), and I wrote every bug down.
+
+**Known weaknesses:** fast motion smears for a few frames, anime clips are 12 fps with each frame shown twice, and the CUDA path exists but I haven't tested it on an NVIDIA GPU.
+
+**Repo, with the full bug log:** https://github.com/DARK-Shadw/ltx25-igpu-streaming
+
+I'd really like feedback from people who do this for a living. What would you have done differently in the streaming design? What should I learn next to get better at this?
 
 ## Instagram / Reels caption (use ltx25_igpu_reel_1080x1920.mp4)
 22B-parameter AI video model. Fully unquantized. Running on a laptop's integrated GPU - no graphics card, 15.6 GB RAM, offline.
