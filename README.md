@@ -3,9 +3,15 @@
 Generate video **with audio** from text or from your own image, using the full-precision **LTX-2.5 (22B)** model on an **Intel Core Ultra 5 125H iGPU with 15.6 GB of shared RAM and no discrete GPU**.
 The model is ~66 GB on disk; this project streams its weights from NVMe **layer by layer** so it fits.
 
-![preview](docs/media/preview.gif)
+![swordsman entrance](docs/media/gif_anime_swordsman_entrance.gif)
 
-Full clips: [`docs/media/ltx25_igpu_highlights_1600x896.mp4`](docs/media/ltx25_igpu_highlights_1600x896.mp4) · vertical reel: [`docs/media/ltx25_igpu_reel_1080x1920.mp4`](docs/media/ltx25_igpu_reel_1080x1920.mp4)
+**Watch with sound:** [swordsman entrance + image-to-video line (10.8 s)](docs/media/i2v_swordsman_entrance_with_audio.mp4) · [31 s highlight film](docs/media/ltx25_igpu_highlights_1600x896.mp4) · [vertical reel](docs/media/ltx25_igpu_reel_1080x1920.mp4)
+
+## Gallery (all generated locally on the iGPU)
+| | |
+|---|---|
+| ![bridge](docs/media/gif_anime_swordsman_bridge.gif)<br>Anime action, 5 s, 1536x896 | ![fox](docs/media/gif_realistic_fox.gif)<br>Realistic, 4 s, 1280x704 |
+| ![hall](docs/media/gif_hall_saintess.gif)<br>Image-to-video from my own artwork: hall and Saintess | ![reveal](docs/media/gif_teacup_and_reveal.gif)<br>Image-to-video: the teacup and the reveal |
 
 ## What this is (and is not)
 - **Is:** the distilled LTX-2.5 22B DiT in **bf16 - no quantization** - plus the Gemma text encoder, video/audio VAEs and vocoder, all streamed from disk. Text-to-video, image-to-video, native audio and speech (checked with an ASR transcript).
@@ -15,15 +21,12 @@ Full clips: [`docs/media/ltx25_igpu_highlights_1600x896.mp4`](docs/media/ltx25_i
 ## Measured on the iGPU (Core Ultra 5 125H, 15.6 GB RAM, Balanced power plan)
 | Result | Settings | Time |
 |---|---|---|
-| Anime, 5.4 s, 1536x896 + audio (**FLASH**) | 768x448 stage 1 -> x2 latent upsample, 12 fps doubled, 1 refinement step | **~14 min** |
-| Anime, 5.4 s, quick look (TURBO) | 640x352 -> 1280x704 | ~9.5 min |
-| Anime, 5 s, best quality (REFERENCE) | 24 fps, 3 refinement steps | ~47 min |
+| Anime, 5.4 s, 1536x896 + audio | 768x448 first pass -> x2 latent upsample, 12 fps doubled, 1 refinement step | **~14 min** |
+| Anime, 5.4 s, quick look | 640x352 -> 1280x704 | ~9.5 min |
+| Anime, 5 s, best quality | true 24 fps, 3 refinement steps | ~47 min |
 | Realistic, 4 s, 1280x704 | two-stage | ~20.6 min |
 | Stage 1 only (prompt/seed check) | 768x448 | ~7-8 min |
 | One denoising step, 3k tokens / 12k tokens | - | ~47 s / ~240 s |
-
-![modes](docs/media/bridge_modes_compare.png)
-*Same prompt and seed in three modes.*
 
 ## How it works (short version)
 1. The model is built on the `meta` device (no memory), and each transformer block's weights are read from the safetensors files with **unbuffered, aligned reads** into a small pinned staging buffer, copied to the GPU, used, and dropped.

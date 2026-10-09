@@ -77,14 +77,3 @@ import imageio_ffmpeg
 ff = imageio_ffmpeg.get_ffmpeg_exe(); gif = os.path.join(OUT, "preview.gif")
 subprocess.run([ff, "-y", "-i", hl, "-t", "8", "-vf", "fps=10,scale=480:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=64[p];[b][p]paletteuse=dither=bayer", gif], capture_output=True)
 print("gif", os.path.getsize(gif) // 1024, "KB")
-
-# ---- speed / quality comparison (same prompt + seed, three modes)
-B = "videos/anime/swordsman-bridge/"
-cmp_ = [("5_turbo-preview_1280x704_12fpsx2_5.4s_9.5min.mp4", "TURBO · 1280×704 · 9.5 min"), ("4_FLASH_1536x896_12fpsx2_5.4s_15min_RECOMMENDED.mp4", "FLASH · 1536×896 · ~15 min"), ("2_reference-hd_1536x896_24fps_5s_47min.mp4", "REFERENCE · 1536×896 · 47 min")]
-tiles = []
-for fn, lab in cmp_:
-    fr = [f.to_ndarray(format="rgb24") for f in av.open(B + fn).decode(video=0)]; im = Image.fromarray(fr[min(len(fr) - 1, int(len(fr) * 0.55))]).resize((640, 368), Image.LANCZOS)
-    d = ImageDraw.Draw(im, "RGBA"); f = FONT(24); tw = d.textlength(lab, font=f); d.rounded_rectangle((8, 8, 8 + tw + 20, 46), 8, fill=(0, 0, 0, 170)); d.text((18, 11), lab, font=f, fill=(255, 255, 255)); tiles.append(im)
-sheet = Image.new("RGB", (640 * 3 + 20, 368), (20, 20, 20))
-for i, t in enumerate(tiles): sheet.paste(t, (i * 650, 0))
-sheet.save(os.path.join(OUT, "bridge_modes_compare.png")); print("compare ok")
